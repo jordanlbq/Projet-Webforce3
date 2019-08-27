@@ -3,10 +3,126 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <link rel="stylesheet" href="{{ asset('/css/bootstrap.css') }}">  
+        <link rel="stylesheet" href="{{ asset('/css/style.css') }}">     
+
+  
+
+
+        {# <link rel="stylesheet" href="{{ asset("/css/bootstrap-grid.css") }}">      #}
+        
+        {% block stylesheets %}
+
+        {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+ 
+
+  <div class="collapse navbar-collapse" id="navbarColor02">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">ACCUEIL<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#">DICTIONNAIRE</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#">VIDEOTHEQUE</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#">A PROPOS</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#">CONNEXION</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#">INSCRIPTION</a>
+      </li>
+    </ul>
+    
+  </div>
+
+
+ </nav>
+        {% block content %}
+     
+     
+        
+        {% endblock %}
+
+
+          
+        <div class="container">
+  <div class="row">
+    <div class="col bg-info">
+      1 of 2
+    </div>
+    <div class="col bg-danger">
+      2 of 2
+    </div>
+  </div>
+  <div class="row">
+    <div class="col bg-light">
+      1 of 3
+    </div>
+    <div class="col bg-secondary">
+      2 of 3
+    </div>
+    <div class="col bg-success">
+      3 of 3
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="page-footer font-small special-color-dark pt-4">
+
+  <!-- Footer Elements -->
+  <div class="container">
+
+    <!-- Social buttons -->
+    <ul class="list-unstyled list-inline text-center">
+      <li class="list-inline-item">
+        <a class="btn-floating btn-fb mx-1">
+          <i class="fab fa-facebook-f"> </i>
+        </a>
+      </li>
+      <li class="list-inline-item">
+        <a class="btn-floating btn-tw mx-1">
+          <i class="fab fa-twitter"> </i>
+        </a>
+      </li>
+      <li class="list-inline-item">
+        <a class="btn-floating btn-gplus mx-1">
+          <i class="fab fa-google-plus-g"> </i>
+        </a>
+      </li>
+      <li class="list-inline-item">
+        <a class="btn-floating btn-li mx-1">
+          <i class="fab fa-linkedin-in"> </i>
+        </a>
+      </li>
+      <li class="list-inline-item">
+        <a class="btn-floating btn-dribbble mx-1">
+          <i class="fab fa-dribbble"> </i>
+        </a>
+      </li>
+    </ul>
+    <!-- Social buttons -->
+
+  </div>
+  <!-- Footer Elements -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2018 Copyright:
+    <a href="https://mdbootstrap.com/education/bootstrap/"> MDBootstrap.com</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+
         {% block javascripts %}{% endblock %}
     </body>
 </html>
