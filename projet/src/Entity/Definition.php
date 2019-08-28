@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\UploadedFile; //$_FILES
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Definition
@@ -14,11 +15,9 @@ use Symfony\Component\HttpFoundation\File\UploadedFile; //$_FILES
 class Definition
 {
     /**
-     * @var int
-     * 
-     * @ORM\Column(name="id", type"integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\Id()
+     * @ORM\GeneratedValue()
+     * @ORM\Column(type="integer")
      */
     private $id;
 
@@ -57,7 +56,7 @@ class Definition
     /**
      * @var string|null
      * 
-     * @ORM\Column(name="video", type="string", length=255, nullable=true)
+     * @ORM\Column(name="videoUrl", type="string", length=255, nullable=true)
      */
     private $videoUrl; 
 
@@ -65,7 +64,7 @@ class Definition
     /**
      * @var string|null
      * 
-     * @ORM\Column(name="video", type="string", length=255, nullable=true)
+     * @ORM\Column(name="videoUpload", type="string", length=255, nullable=true)
      */
     private $videoUpload; 
 
