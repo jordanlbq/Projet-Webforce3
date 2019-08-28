@@ -34,7 +34,17 @@ class DefinitionController extends AbstractController
 
     }
 
+    /**
+     * @Route ("/recherche", name="recherche")
+     * 
+     */
+    public function recherche(){
 
+        return $this->render('definition/index.html.twig',[
+            
+        ]);
+
+    }
 
 
 }
