@@ -19,6 +19,8 @@ class UserController extends AbstractController
      */
     public function inscription()
     {
+
+        
         return $this->render('user/register.html.twig', [
            
         ]);

@@ -7,7 +7,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\UserRepository)
+ * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
 class User implements UserInterface
 {
@@ -23,18 +23,18 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=30)
      * 
      * @Assert\NotBlank(message="Veuillez renseigner un pseudo")
-     * @Assert\Lenght(
+     * @Assert\Length(
      * min=5,
      * max=30,
      * minMessage="Veuillez renseigner un pseudo de 5 caractères minimum",
-     * maxMessage="Veuillez renseigner un pseudo de 30 caractères maximum
+     * maxMessage="Veuillez renseigner un pseudo de 30 caractères maximum"
      * )
      */
     private $username;
 
 
     /**
-     * @ORM\Column(type="string", lenght=255, nullable=false)
+     * @ORM\Column(type="string", length=255, nullable=false)
      * 
      * @Assert\Regex(
      * pattern="/^\S*(?=\S{8,})(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[\d])\S*$/",
@@ -58,7 +58,7 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=30)
      * 
      * @Assert\NotBlank(message="Veuillez renseigner un prénom")
-     * @Assert\Lenght(
+     * @Assert\Length(
      * min=3,
      * max=30,
      * minMessage="Veuillez renseigner un prénom de 3 caractères minimum",
@@ -69,13 +69,13 @@ class User implements UserInterface
 
 
     /**
-     * @ORM\Column(type="string", lenght=30)
+     * @ORM\Column(type="string", length=30)
      * 
      * @Assert\NotBlank(message="Veuillez renseigner un nom")
      * @Assert\Length(
      * min=2,
      * max=30,
-     * minMessage="Veuillez renseigner un nom de 2 caractères minimum,
+     * minMessage="Veuillez renseigner un nom de 2 caractères minimum",
      * maxMessage="Veuillez renseigner un nom de 30 caractères maximum"
      * )
      */
@@ -159,14 +159,6 @@ class User implements UserInterface
 
         return $this;
     }
-
-
-
-
-
-
-
-
 
     /**
      * Get the value of id
