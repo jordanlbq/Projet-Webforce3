@@ -1,10 +1,10 @@
-<?php 
+<?php
 
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Contraints as Assert;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository)
@@ -139,7 +139,7 @@ class User implements UserInterface
     private $role = 'ROLE_USER';
 
 
-    
+
 
 
 
