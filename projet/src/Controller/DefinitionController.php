@@ -8,6 +8,9 @@ use Symfony\Component\Routing\Annotation\Route;
 class DefinitionController extends AbstractController
 {
 
+    // route de l'accueil, des definition et de la barre de recherche
+
+
     /**
      * @Route ("/", name="home")
      * 
@@ -18,6 +21,19 @@ class DefinitionController extends AbstractController
         ]);
 
     }
+
+    /**
+     * @Route ("/definition", name="definition")
+     * 
+     */
+    public function definition(){
+
+        return $this->render('definition/definition.html.twig',[
+            
+        ]);
+
+    }
+
 
 
 
