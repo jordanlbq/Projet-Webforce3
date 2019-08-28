@@ -138,8 +138,27 @@ class User implements UserInterface
      */
     private $role = 'ROLE_USER';
 
+    private $salt;
 
+    /**
+    * Get the value of salt
+    */ 
+    public function getSalt()
+    {
+        return $this->salt;
+    }
 
+    /**
+    * Set the value of salt
+    *
+    * @return  self
+    */ 
+    public function setSalt($salt)
+    {
+        $this->salt = $salt;
+
+        return $this;
+    }
 
 
 
@@ -403,5 +422,9 @@ class User implements UserInterface
     public function getRoles()
     {
         return [ $this-> role ];
+    }
+
+    public function eraseCredentials(){
+
     }
 }
