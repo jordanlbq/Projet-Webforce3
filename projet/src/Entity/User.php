@@ -136,7 +136,7 @@ class User implements UserInterface
     /**
      * @ORM\Column(name="role", type="string", length=20)
      */
-    private $role = 'ROLE_USER';
+    private $role;
 
 
 
