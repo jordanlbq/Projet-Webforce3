@@ -3,6 +3,42 @@
 
 {% block content %}
 	
+	<h1>Inscription</h1>
+	
+	
+	{{ form_start(userForm) }}
+		<div class="row">
+			<div class="col-6">
+				{{ form_row(userForm.username) }}
+				
+				{% if not is_granted('ROLE_USER') %}
+					{{ form_row(userForm.password) }}
+				{% endif %}
+				
+				{{ form_row(userForm.prenom) }}
+				{{ form_row(userForm.nom) }}
+				{{ form_row(userForm.email) }}
+				{{ form_row(userForm.civilite) }}
+			</div>
+
+			<div class="col-6">
+				{{ form_row(userForm.adresse) }}
+				{{ form_row(userForm.ville) }}
+				{{ form_row(userForm.codePostal) }}
+				{{ form_row(userForm.telephone) }}
+				
+				<div class="row">
+				
+					{{ form_row(userForm.dateDeNaissance) }}
+
+				
+				{{ form_row(userForm.submit, { 'label' : 'Inscription' } ) }}
+			</div>
+			
+			
+			
+		</div>
+	{{ form_end(userForm) }}
 	
 
 {% endblock %}
