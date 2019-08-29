@@ -94,7 +94,7 @@ class AdminController extends AbstractController
     /**
      * @Route("/admin/user/delete/{id}", name="admin_user_delete")
      */
-    public function adminUserDelete($id)
+    public function adminUserDelete($id, ObjectManager $manager)
     {
        
 		$user = $manager -> find(User::class, $id);

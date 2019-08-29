@@ -15,7 +15,7 @@ height:80vh;
 
 header
 {
-    height:20vh;
+    height:80vh;
     margin:0 auto;
     width:100%;
 }
@@ -24,4 +24,6 @@ img
    
     padding:2vh;
 }
-
+.navbar-collapse{
+    justify-content: center;
+}
