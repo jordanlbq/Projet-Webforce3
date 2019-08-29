@@ -12,7 +12,9 @@
         {# <link rel="stylesheet" href="{{ asset("/css/bootstrap-grid.css") }}">      #}
         
         {% block stylesheets %}
+<style>
 
+</style>
         {% endblock %}
     </head>
     <body>
@@ -45,38 +47,16 @@
 
 
  </nav>
+ <div class="container-fluid">
         {% block content %}
      
      
         
         {% endblock %}
-
-
-          
-        <div class="container">
-  <div class="row">
-    <div class="col bg-info">
-      1 of 2
-    </div>
-    <div class="col bg-danger">
-      2 of 2
-    </div>
-  </div>
-  <div class="row">
-    <div class="col bg-light">
-      1 of 3
-    </div>
-    <div class="col bg-secondary">
-      2 of 3
-    </div>
-    <div class="col bg-success">
-      3 of 3
-    </div>
-  </div>
 </div>
 
 <!-- Footer -->
-<footer class="page-footer font-small teal pt-4">
+<footer class="page-footer font-small teal pt-4 fixed-bottom">
 
   <!-- Footer Text -->
   <div class="container-fluid text-center text-md-left">

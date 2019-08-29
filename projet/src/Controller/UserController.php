@@ -77,8 +77,32 @@ class UserController extends AbstractController
      */
     public function profil()
     {
+
         return $this->render('user/profil.html.twig', [
            
+        ]);
+    }
+
+     /**
+     * @Route("/profil/update", name="profil_update")
+     */
+    public function profilUpdate(Request $request, ObjectManager $manager)
+    {
+        $user = $this -> getUser();
+		$form = $this -> createForm(UserType::class, $user, ['update' => true]);
+		
+		$form -> handleRequest($request);
+		
+		if($form -> isSubmitted() && $form -> isValid()){
+			
+			$manager -> persist($user);
+			$manager -> flush();
+			
+			$this -> addFlash('success', 'Félicitations, votre profil est à jour !');
+			return $this -> redirectToRoute('profil');
+		}
+        return $this->render('user/register.html.twig', [
+            'userForm' => $form -> createView() 
         ]);
     }
     

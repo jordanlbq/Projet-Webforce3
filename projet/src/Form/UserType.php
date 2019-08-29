@@ -45,7 +45,21 @@ class UserType extends AbstractType
                 )))
             -> add('submit', SubmitType::class)
         ;
-    }
+        // if($options['admin'] == true){	
+		// 	$builder -> add('role', ChoiceType::class, array(
+		// 		'choices' => array(
+		// 			'Client' => 'ROLE_USER',
+		// 			'Admin' => 'ROLE_ADMIN',
+		// 			'Super Admin' => 'ROLE_SUPER_ADMIN'
+		// 		)
+		// 	));
+		// }
+		// else{
+			if($options['update'] != true){
+				$builder -> add('password', PasswordType::class);
+			}
+		}
+    
 
     public function configureOptions(OptionsResolver $resolver)
     {
@@ -53,7 +67,9 @@ class UserType extends AbstractType
             'data_class' => User::class,
             'attr' => array(
 				'novalidate' => 'novalidate'
-			),
+            ),
+            // 'admin' => false,
+			'update' => false
         ]);
     }
 }
