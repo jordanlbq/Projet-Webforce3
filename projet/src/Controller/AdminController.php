@@ -87,6 +87,8 @@ class AdminController extends AbstractController
      */
     public function adminDefinitionAdd()
     {
+        
+
         return $this->render('admin/Definition_form.html.twig', [
            
         ]);
