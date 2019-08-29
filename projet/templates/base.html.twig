@@ -6,45 +6,22 @@
         <link rel="stylesheet" href="{{ asset('/css/bootstrap.css') }}">  
         <link rel="stylesheet" href="{{ asset('/css/style.css') }}">     
 
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+        <!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<!-- Bootstrap core CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 <!-- Material Design Bootstrap -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.8/css/mdb.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         {# <link rel="stylesheet" href="{{ asset("/css/bootstrap-grid.css") }}">      #}
-        
+<link rel="stylesheet" href="{{ asset('/css/style.css') }}">
+
         {% block stylesheets %}
 
         {% endblock %}
     </head>
     <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
- 
-
-  <div class="collapse navbar-collapse" id="navbarColor02">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">ACCUEIL<span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="#">DICTIONNAIRE</a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="#">VIDEOTHEQUE</a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="#">A PROPOS</a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="#">CONNEXION</a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="#">INSCRIPTION</a>
-      </li>
-    </ul>
-    
-  </div>
-
-
- </nav>
+   
         {% block content %}
      
      
@@ -53,81 +30,252 @@
 
 
           
-        <div class="container">
-  <div class="row">
-    <div class="col bg-info">
-      1 of 2
+        
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   
+    <!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<!-- Bootstrap core CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.8/css/mdb.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Handisport</title>
+    <link rel="stylesheet" href="projet.css">
+</head>
+<body>
+
+
+<nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #1445FF;">
+  
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+
+    <div class="navbar-nav taille">
+      <a class="nav-item nav-link active" href="#">Accueil<span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link active" href="#">Dictionnaire</a>
+      <a class="nav-item nav-link active" href="#">Videotheque</a>
+      <a class="nav-item nav-link active" href="#">A Propos</a>
+    </div> 
+</div>
+  
+    <form class="form-inline my-2 my-lg-0">
+        <a class="nav-item nav-link active" href="#">Connexion</a>
+      <a class="nav-item nav-link active" href="#">Inscription</a>
+    </form>
+</nav>
+
+<header>
+
+    <div align="center">
+    <img src="img/logoParlons.png"
+    height="150px"
+    width="500px"/>
     </div>
-    <div class="col bg-danger">
-      2 of 2
+
+</header>
+
+
+
+
+
+
+
+
+<!-- Footer -->
+<footer class="page-footer font-small unique-color-dark">
+
+<div style="background-color: #6351ce;">
+  <div class="container">
+
+    <!-- Grid row-->
+    <div class="row py-4 d-flex align-items-center">
+
+      <!-- Grid column -->
+      <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
+        <h6 class="mb-0">Get connected with us on social networks!</h6>
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-6 col-lg-7 text-center text-md-right">
+
+        <!-- Facebook -->
+        <a class="fb-ic">
+          <i class="fab fa-facebook-f white-text mr-4"> </i>
+        </a>
+        <!-- Twitter -->
+        <a class="tw-ic">
+          <i class="fab fa-twitter white-text mr-4"> </i>
+        </a>
+        <!-- Google +-->
+        <a class="gplus-ic">
+          <i class="fab fa-google-plus-g white-text mr-4"> </i>
+        </a>
+        <!--Linkedin -->
+        <a class="li-ic">
+          <i class="fab fa-linkedin-in white-text mr-4"> </i>
+        </a>
+        <!--Instagram-->
+        <a class="ins-ic">
+          <i class="fab fa-instagram white-text"> </i>
+        </a>
+
+      </div>
+      <!-- Grid column -->
+
     </div>
-  </div>
-  <div class="row">
-    <div class="col bg-light">
-      1 of 3
-    </div>
-    <div class="col bg-secondary">
-      2 of 3
-    </div>
-    <div class="col bg-success">
-      3 of 3
-    </div>
+    <!-- Grid row-->
+
   </div>
 </div>
 
-<!-- Footer -->
-<footer class="page-footer font-small teal pt-4">
+<!-- Footer Links -->
+<div class="container text-center text-md-left mt-5">
 
-  <!-- Footer Text -->
-  <div class="container-fluid text-center text-md-left">
+  <!-- Grid row -->
+  <div class="row mt-3">
 
-    <!-- Grid row -->
-    <div class="row">
+    <!-- Grid column -->
+    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
 
-      <!-- Grid column -->
-      <div class="col-md-6 mt-md-0 mt-3">
-
-        <!-- Content -->
-        <h5 class="text-uppercase font-weight-bold">Footer text 1</h5>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita sapiente sint, nulla, nihil
-          repudiandae commodi voluptatibus corrupti animi sequi aliquid magnam debitis, maxime quam recusandae
-          harum esse fugiat. Itaque, culpa?</p>
-
-      </div>
-      <!-- Grid column -->
-
-      <hr class="clearfix w-100 d-md-none pb-3">
-
-      <!-- Grid column -->
-      <div class="col-md-6 mb-md-0 mb-3">
-
-        <!-- Content -->
-        <h5 class="text-uppercase font-weight-bold">Footer text 2</h5>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio deserunt fuga perferendis modi earum
-          commodi aperiam temporibus quod nulla nesciunt aliquid debitis ullam omnis quos ipsam, aspernatur id
-          excepturi hic.</p>
-
-      </div>
-      <!-- Grid column -->
+      <!-- Content -->
+      <h6 class="text-uppercase font-weight-bold">Company name</h6>
+      <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+      <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
+        consectetur
+        adipisicing elit.</p>
 
     </div>
-    <!-- Grid row -->
+    <!-- Grid column -->
+
+    <!-- Grid column -->
+    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+
+      <!-- Links -->
+      <h6 class="text-uppercase font-weight-bold">Products</h6>
+      <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+      <p>
+        <a href="#!">MDBootstrap</a>
+      </p>
+      <p>
+        <a href="#!">MDWordPress</a>
+      </p>
+      <p>
+        <a href="#!">BrandFlow</a>
+      </p>
+      <p>
+        <a href="#!">Bootstrap Angular</a>
+      </p>
+
+    </div>
+    <!-- Grid column -->
+
+    <!-- Grid column -->
+    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+
+      <!-- Links -->
+      <h6 class="text-uppercase font-weight-bold">Useful links</h6>
+      <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+      <p>
+        <a href="#!">Your Account</a>
+      </p>
+      <p>
+        <a href="#!">Become an Affiliate</a>
+      </p>
+      <p>
+        <a href="#!">Shipping Rates</a>
+      </p>
+      <p>
+        <a href="#!">Help</a>
+      </p>
+
+    </div>
+    <!-- Grid column -->
+
+    <!-- Grid column -->
+    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+
+      <!-- Links -->
+      <h6 class="text-uppercase font-weight-bold">Contact</h6>
+      <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+      <p>
+        <i class="fas fa-home mr-3"></i> New York, NY 10012, US</p>
+      <p>
+        <i class="fas fa-envelope mr-3"></i> info@example.com</p>
+      <p>
+        <i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
+      <p>
+        <i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
+
+    </div>
+    <!-- Grid column -->
 
   </div>
-  <!-- Footer Text -->
+  <!-- Grid row -->
 
-  <!-- Copyright -->
-  <div class="footer-copyright text-center py-3">© 2018 Copyright:
-    <a href="https://mdbootstrap.com/education/bootstrap/"> MDBootstrap.com</a>
-  </div>
-  <!-- Copyright -->
+</div>
+<!-- Footer Links -->
+
+<!-- Copyright -->
+<div class="footer-copyright text-center py-3">© 2018 Copyright:
+  <a href="https://mdbootstrap.com/education/bootstrap/"> MDBootstrap.com</a>
+</div>
+<!-- Copyright -->
 
 </footer>
 <!-- Footer -->
 
- <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.8/js/mdb.min.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
+
+
+  <!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.8/js/mdb.min.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         {% block javascripts %}{% endblock %}
     </body>
 </html>
