@@ -4,6 +4,15 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Request;
+use Doctrine\Common\Persistence\ObjectManager;
+
+use App\Entity\User; 
+use App\Form\UserType;
+use App\Repository\UserRepository;
+
+use App\Entity\Definition; 
+use App\Form\DefinitionType;  
 
 class AdminController extends AbstractController
 {
@@ -14,11 +23,16 @@ class AdminController extends AbstractController
 
     /**
      * @Route("/admin/user", name="admin_user")
+     * 
+     * on affiche la liste des user du site
      */
     public function adminUser()
     {
+        $repo = $this -> getDoctrine() -> getRepository(User::class);
+        $users = $repo -> findAll();
+
         return $this->render('admin/user_list.html.twig', [
-           
+            'users' => $users
         ]);
     }
 

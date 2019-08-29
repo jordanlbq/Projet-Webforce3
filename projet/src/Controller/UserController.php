@@ -11,6 +11,7 @@ use App\Form\UserType;
 use App\Entity\User;  
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 
 
@@ -26,8 +27,6 @@ class UserController extends AbstractController
         $form -> handleRequest($request);
 		if($form -> isSubmitted() && $form -> isValid()){
 			$manager -> persist($user);
-			
-			
 			
 			//if($membre -> getDateDeNaissance() -> getTimeStamp() > time() - (16 * 365.25 * 24 * 60 * 60)){
 			
@@ -55,9 +54,20 @@ class UserController extends AbstractController
     /**
      * @Route("/connexion", name="connexion")
      */
-    public function connexion()
+    public function connexion(AuthenticationUtils $auth)
     {
-        return $this->render('user/connexion.html.twig', [
+        $lastUsername = $auth -> getLastUsername();
+		// récupérer le username
+		
+		$error = $auth -> getLastAuthenticationError();
+		// récupérer les erreurs
+		
+		if(!empty($error)){
+			$this -> addFlash('errors', 'Problème d\'identifiant !');
+		}
+
+
+        return $this->render('user/login.html.twig', [
            
         ]);
     }
@@ -67,8 +77,32 @@ class UserController extends AbstractController
      */
     public function profil()
     {
+
         return $this->render('user/profil.html.twig', [
            
+        ]);
+    }
+
+     /**
+     * @Route("/profil/update", name="profil_update")
+     */
+    public function profilUpdate(Request $request, ObjectManager $manager)
+    {
+        $user = $this -> getUser();
+		$form = $this -> createForm(UserType::class, $user, ['update' => true]);
+		
+		$form -> handleRequest($request);
+		
+		if($form -> isSubmitted() && $form -> isValid()){
+			
+			$manager -> persist($user);
+			$manager -> flush();
+			
+			$this -> addFlash('success', 'Félicitations, votre profil est à jour !');
+			return $this -> redirectToRoute('profil');
+		}
+        return $this->render('user/register.html.twig', [
+            'userForm' => $form -> createView() 
         ]);
     }
     
@@ -86,6 +120,10 @@ class UserController extends AbstractController
     */
     public function connexionCheck(){
 
+
+        return $this->render('user/profil.html.twig', [
+           
+            ]);
     }
 
    
