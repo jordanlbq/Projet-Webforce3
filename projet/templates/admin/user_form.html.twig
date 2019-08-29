@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+
+    {% block stylesheets %}
+<style>
+
+</style>
+    {% endblock %}
+{% block content %}
+<h1 class="text-center text-primary"> Inscription </h1>
+
+<form class="form-groupe bg-primary text-white">
+<div class="col-md-8 offset-md-2">
+{{ form_start(userForm) }}	
+<div class="row">
+	<div class="form-group col-md-6">
+		{{ form_row(userForm.username)}}
+	</div>
+	<div class="form-group col-md-6">
+		{{ form_row(userForm.password)}}
+	</div>
+</div>
+<div class="row">
+	<div class="form-group col-md-4">
+		{{ form_row(userForm.prenom)}}
+	</div>
+	<div class="form-group col-md-4">
+		{{ form_row(userForm.nom)}}
+	</div>
+	<div class="form-group col-md-4">
+		{{ form_row(userForm.civilite)}}
+	</div>
+</div>
+<div class="row">
+	<div class="form-group col-md-6 offset-md-3">
+		{{ form_row(userForm.email)}}
+	</div>
+</div>
+<div class="row">
+	<div class="form-group col-md-6">
+		{{ form_row(userForm.codePostal)}}
+	</div>
+	<div class="form-group col-md-6">
+		{{ form_row(userForm.ville)}}
+	</div>
+	<div class="form-group col-md-6 offset-md-3">
+		{{ form_row(userForm.adresse)}}
+	</div>
+</div>
+
+<div class="row">
+	<div class="form-group col-md-2">
+		{{ form_row(userForm.telephone)}}
+	</div>
+	<div class=" form-group col-md-2">
+		{{ form_row(userForm.dateDeNaissance.day, {label : 'Jour'}) }}
+	</div>
+	<div class=" form-group col-md-2">
+		{{ form_row(userForm.dateDeNaissance.month, {label : 'Mois'}) }}
+	</div>
+	<div class=" form-group col-md-2">
+		{{ form_row(userForm.dateDeNaissance.year, {label : 'Année'}) }}
+	</div>
+</div>
+{{ form_end(userForm) }}
+	</div>
+
+</form>
+{% endblock %}

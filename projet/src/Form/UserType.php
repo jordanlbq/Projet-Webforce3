@@ -21,7 +21,6 @@ class UserType extends AbstractType
     {
         $builder
             ->add('username', TextType::class)
-            ->add('password')
             ->add('email', EmailType::class)
             ->add('prenom', TextType::class)
             ->add('nom', TextType::class)
@@ -37,30 +36,25 @@ class UserType extends AbstractType
             ->add('adresse', TextareaType::class)
             ->add('telephone', TextType::class)
             ->add('dateDeNaissance',  BirthdayType::class)
-            ->add('role', ChoiceType::class, array(
+            -> add('submit', SubmitType::class)
+           
+        ;
+        if($options['admin'] == true){	
+			$builder -> add('role', ChoiceType::class, array(
 				'choices' => array(
 					'Client' => 'ROLE_USER',
 					'Admin' => 'ROLE_ADMIN',
 					'Super Admin' => 'ROLE_SUPER_ADMIN'
-                )))
-            -> add('submit', SubmitType::class)
-        ;
-        // if($options['admin'] == true){	
-		// 	$builder -> add('role', ChoiceType::class, array(
-		// 		'choices' => array(
-		// 			'Client' => 'ROLE_USER',
-		// 			'Admin' => 'ROLE_ADMIN',
-		// 			'Super Admin' => 'ROLE_SUPER_ADMIN'
-		// 		)
-		// 	));
-		// }
-		// else{
+				)
+			));
+		}
+		else{
 			if($options['update'] != true){
 				$builder -> add('password', PasswordType::class);
 			}
 		}
     
-
+    }
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
@@ -68,8 +62,8 @@ class UserType extends AbstractType
             'attr' => array(
 				'novalidate' => 'novalidate'
             ),
-            // 'admin' => false,
+            'admin' => false,
 			'update' => false
         ]);
     }
-}
+ }
