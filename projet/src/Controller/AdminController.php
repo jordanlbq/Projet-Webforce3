@@ -74,8 +74,11 @@ class AdminController extends AbstractController
      */
     public function adminDefinition()
     {
+        $repo = $this -> getDoctrine() -> getRepository(Definition::class);
+        $def = $repo -> findAll();
+
         return $this->render('admin/Definition_list.html.twig', [
-           
+           'def'=> $def
         ]);
     }
 
