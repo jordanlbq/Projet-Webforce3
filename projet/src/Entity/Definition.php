@@ -215,4 +215,63 @@ class Definition
 
         return $this;
     }
-}
+
+    public function setFile(UploadedFile $file) : self{
+        $this -> file = $file;
+        return $this;
+    }
+    
+    public function getFile(){
+        return $this -> file;
+    }
+
+    // Photo
+    public function UploadeFile(){
+        $nom = $this -> file -> getClientOriginalName();
+        $new_nom = $this -> renamePhoto($nom);
+        $this -> photo = $new_nom;
+        $this ->file -> move($this -> dirPhoto(), $new_nom);
+    }
+
+    public function renamePhoto($name){
+        return 'photo_' . time() . '_' . rand(1, 99999) . '_' . $name;
+    }
+
+    public function dirPhoto(){
+        return __DIR__ . '/../../public/image';
+    }
+
+    public function removePhoto(){
+        $file = $this -> dirPhoto() . $this -> getPhoto();
+        if(file_exists($file) && $this -> getPhoto() != 'default.jpg'){
+            unlink($file);
+        }
+    }
+
+    // VideoUpload
+    public function UploadedVideoUpload(){
+        $nom = $this -> file -> getClientOriginalName();
+        $new_nom = $this -> renameVideoUpload($nom);
+        $this -> videoUpload = $new_nom;
+        $this ->file -> move($this -> dirVideoUpload(), $new_nom);
+    }
+
+    public function renameVideoUpload(){
+        return 'video_' . time() . '_' . rand(1, 99999) . '_' . $name;
+    }
+
+    public function dirVideoUpload(){
+        return __DIR__ . '/../../public/video';
+    }
+
+    public function removeVideoUpload(){
+        $file = $this -> dirVideoUpload() . $this -> getVideoUpload();
+        if(file_exists($file) && $this -> getVideoUpload() != 'default.mp4'){
+            unlink($file);
+        }
+    }
+
+    // Description
+
+
+} 
