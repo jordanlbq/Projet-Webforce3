@@ -39,9 +39,30 @@ class AdminController extends AbstractController
     /**
      * @Route("/admin/user/add", name="admin_user_add")
      */
-    public function adminUserAdd()
+    public function adminUserAdd(Request $request, ObjectManager $manager)
     {
+        $user = new User;
+		$form = $this -> createForm(UserType::class, $user, array(
+			'admin' => true
+		));
+		
+		// traiter les données du formulaire 
+		$form -> handleRequest($request);
+		if($form -> isSubmitted() && $form -> isValid()){
+			
+			$manager -> persist($user);
+			// $password = md5(rand(1, 99999)); //DF5ESdsrSF5S56 
+			// $membre -> setPassword($password);
+			
+			$manager -> flush();
+			
+			// On envoie un email au membre, $membre -> getEmail(), en lui transmettant son mot de passe $password
+			
+			$this -> addFlash('success', 'Le membre ' . $user -> getId() . ' a été ajouté avec succès !');
+			return $this -> redirectToRoute('admin_user');
+		}
         return $this->render('admin/user_form.html.twig', [
+            'userForm' => $form -> createView() 
            
         ]);
     }
@@ -49,19 +70,47 @@ class AdminController extends AbstractController
     /**
      * @Route("/admin/user/update/{id}", name="admin_user_update")
      */
-    public function adminUserUpdate($id)
+    public function adminUserUpdate($id, ObjectManager $manager, Request $request)
     {
+        $user = $manager -> find(User::class, $id);
+		$form = $this -> createForm(UserType::class, $user, array('admin' => true));
+		
+		// traiter les infos du formulaire 
+		$form -> handleRequest($request);
+		if($form -> isSubmitted() && $form -> isValid()){
+			
+			$manager -> persist($user);
+			$manager -> flush();
+			
+			$this -> addFlash('success', 'Le membre ' . $id . ' a bien été modifié !');
+			return $this -> redirectToRoute('admin_user');
+		}
         return $this->render('admin/user_form.html.twig', [
-           
+            'userForm' => $form -> createView(),
+			
         ]);
     }
 
     /**
      * @Route("/admin/user/delete/{id}", name="admin_user_delete")
      */
-    public function adminUserDelete($id)
+    public function adminUserDelete($id, ObjectManager $manager)
     {
        
+		$user = $manager -> find(User::class, $id);
+		
+		if($user){
+			$manager -> remove($user);
+			$manager -> flush();
+			
+			$this -> addFlash('success', 'Le membre ' . $id . ' a bien été supprimé !');
+			return $this -> redirectToRoute('admin_user');
+		}
+		else{
+			//throw $this -> createNotFoundException('Le membre n\'existe pas');
+			$this -> addFlash('errors', 'Le membre ' . $id . ' n\'a pas été trouvé');
+			return $this -> redirectToRoute('admin_user');
+		}
     }
 
 

@@ -1,65 +1,72 @@
 {% extends 'base.html.twig' %}
 
+
     {% block stylesheets %}
-	<style>
+<style>
 
 </style>
     {% endblock %}
 {% block content %}
-	
-	<h1>Inscription</h1>
-	{{ form_start(userForm) }}
-	<form class="form-groupe"> 
-		<div class="row">      
-			<div class="col-md-4 col-sm-4 col-lg-4 offset-md-4">
-				{{ form_row(userForm.username) }}
-					{% if not is_granted('ROLE_USER') %}
-						{{ form_row(userForm.password) }}
-					{% endif %}
-			</div>            
-		</div>
-      <hr>
-		<div class="row">
-			<div class="col-md-4 col-sm-4 col-lg-4 offset-md-4">
-					{{ form_row(userForm.prenom) }}
-          
-			</div>  
-			<div class="col-md-4 col-sm-4 col-lg-4 offset-md-4">
-					{{ form_row(userForm.nom) }}	        
-			</div>  
-			<div class="col-md-4 col-sm-4 col-lg-4 offset-md-4">
-					{{ form_row(userForm.email) }}       
-			</div>            
-			<div class="col-md-4 col-sm-4 col-lg-4 offset-md-6">
-					{{ form_row(userForm.civilite) }}            
-			</div>  
-		</div>
-      <hr>
-		<div class="row">
-			<div class="col-md-4 col-sm-4 col-lg-4 offset-md-4 flex-wrap">
-					{{ form_row(userForm.adresse) }}
-					{{ form_row(userForm.ville) }}
-					{{ form_row(userForm.codePostal) }}
-					{{ form_row(userForm.telephone) }}
-					{{ form_row(userForm.role) }}
-			</div>            
-		</div>
-      <hr>
-		<div class="row">
-			<div class="col-md-4 col-sm-4 col-lg-4 offset-md-4">
-				{{ form_row(userForm.dateDeNaissance) }}
-			</div>            
-		</div>
-      <hr>
-		<div class="row">
-			<div class="col-md-6 col-sm-6 col-xs-6 col-lg-6">
-				{{ form_row(userForm.submit, { 'label' : 'Inscription'}) }}  
-			</div>         
-		</div>    
-    </form>
-			
-	
-	 {{ form_end(userForm) }} 
-	
+<h1 class="text-center text-primary"> Inscription </h1>
 
+<form class="form-groupe bg-primary text-white">
+<div class="col-md-8 offset-md-2">
+{{ form_start(userForm) }}	
+<div class="row">
+	<div class="form-group col-md-6">
+		{{ form_row(userForm.username)}}
+	</div>
+	<div class="form-group col-md-6">
+		{% if not is_granted('ROLE_USER') %}
+			{{ form_row(userForm.password) }}
+		{% endif %}
+	</div>
+</div>
+<div class="row">
+	<div class="form-group col-md-4">
+		{{ form_row(userForm.prenom)}}
+	</div>
+	<div class="form-group col-md-4">
+		{{ form_row(userForm.nom)}}
+	</div>
+	<div class="form-group col-md-4">
+		{{ form_row(userForm.civilite)}}
+	</div>
+</div>
+<div class="row">
+	<div class="form-group col-md-6 offset-md-3">
+		{{ form_row(userForm.email)}}
+	</div>
+</div>
+<div class="row">
+	<div class="form-group col-md-6">
+		{{ form_row(userForm.codePostal)}}
+	</div>
+	<div class="form-group col-md-6">
+		{{ form_row(userForm.ville)}}
+	</div>
+	<div class="form-group col-md-6 offset-md-3">
+		{{ form_row(userForm.adresse)}}
+	</div>
+</div>
+
+<div class="row">
+	<div class="form-group col-md-2">
+		{{ form_row(userForm.telephone)}}
+	</div>
+	<div class=" form-group col-md-2">
+		{{ form_row(userForm.dateDeNaissance.day, {label : 'Jour'}) }}
+	</div>
+	<div class=" form-group col-md-2">
+		{{ form_row(userForm.dateDeNaissance.month, {label : 'Mois'}) }}
+	</div>
+	<div class=" form-group col-md-2">
+		{{ form_row(userForm.dateDeNaissance.year, {label : 'Année'}) }}
+	</div>
+</div>
+
+{{ form_end(userForm) }}
+	</div>
+
+</form>
 {% endblock %}

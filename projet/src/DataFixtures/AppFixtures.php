@@ -22,12 +22,12 @@ class AppFixtures extends Fixture
             $user -> setEmail($faker -> email);
             $user -> setPrenom($faker -> name);
             $user -> setNom($faker -> name);
-            $user -> setCivilite($faker -> title($gender = null|'m'|'f'));
+            $user -> setCivilite($faker -> randomElement(['m', 'f']));
             $user -> setVille($faker -> city);
             $user -> setCodePostal($faker -> postcode);
             $user -> setAdresse($faker -> address);
-            $user -> setTelephone($faker -> number);
-            $user -> setDateDeNaissance($faker -> date($format = 'Y-m-d', $max = 'now') );
+            $user -> setTelephone($faker -> phoneNumber);
+            $user -> setDateDeNaissance($faker -> dateTimeAD($max = 'now', $timezone = null) );
 
 			//----
 			$manager -> persist($user);

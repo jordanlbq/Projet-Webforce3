@@ -4,4 +4,26 @@ margin: 0!important;
 padding:0;
 height:80vh;
 }
+.taille
+{
+    justify-content: space-between
+}
+.nav-item
+{
+    color:white;
+}
 
+header
+{
+    height:80vh;
+    margin:0 auto;
+    width:100%;
+}
+img
+{
+   
+    padding:2vh;
+}
+.navbar-collapse{
+    justify-content: center;
+}
