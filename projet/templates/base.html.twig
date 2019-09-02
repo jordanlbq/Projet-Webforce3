@@ -23,7 +23,6 @@
 
 <!--Navbar-->
 <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #1445FF;">
-    
     <a class="navbar-brand success" href="#">Parlons sans bruit</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse"
         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -33,7 +32,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item ">
-                <a class="nav-link" href="#">Accueil <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{{ path('home') }}">Accueil <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Videotheque<span class="sr-only">(current)</span></a>
@@ -51,10 +50,9 @@
             <input class="form-control mr-sm-2" type="text" placeholder="Tapez votre recherche" aria-label="Search">
             
         </form>
-        <button type="button" class="btn btn-primary btn-sm">Connexion</button>
-        <button type="button" class="btn btn-primary btn-sm">Inscription</button>
+        <button type="button" href="{{ path('connexion')}}" class="btn btn-primary btn-sm">Connexion</button>
+        <button type="button"  href="{{ path('inscription')}}" class="btn btn-primary btn-sm">Inscription</button>
     </div>
-
 </nav>
 <!--/.Navbar-->
 
@@ -73,7 +71,14 @@
 </header>
 
 
+<div class="container-fluid">
 
+			{% block content %}
+
+
+      
+			{% endblock %}
+</div>
 
 
 
@@ -222,17 +227,6 @@
 
 </footer>
 <!-- Footer -->
-
-
-
-
-
-
-
-
-
-
-
 
 
 
