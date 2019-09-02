@@ -5,6 +5,8 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\Common\Collections\ArrayCollection; 
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
@@ -138,6 +140,9 @@ class User implements UserInterface
      */
     private $role = 'ROLE_USER';
 
+    /**
+	* @ORM\Column(name="salt", type="string", length=255, nullable=true)
+	*/
     private $salt;
 
     /**

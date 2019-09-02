@@ -27,7 +27,7 @@ class SecurityController extends AbstractController
 
 
         return $this->render('user/login.html.twig', [
-           
+            'lastUsername' => $lastUsername
         ]);
     }
 
@@ -44,8 +44,6 @@ class SecurityController extends AbstractController
     *
     */
     public function connexionCheck(){
-        return $this -> render('definition/index.html.twig', [
-			
-            ]);
+
     }
 }

@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 use App\Form\UserType;
 use App\Entity\User;  
+
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
@@ -23,21 +24,22 @@ class UserController extends AbstractController
     public function inscription(Request $request, ObjectManager $manager, userPasswordEncoderInterface $encoder)
     {
         $user = new User;
-		$form = $this -> createForm(UserType::class, $user);
+        $form = $this -> createForm(UserType::class, $user);
+        
         $form -> handleRequest($request);
 		if($form -> isSubmitted() && $form -> isValid()){
 			$manager -> persist($user);
 			
-			//if($membre -> getDateDeNaissance() -> getTimeStamp() > time() - (16 * 365.25 * 24 * 60 * 60)){
+		
 			
 			$user -> setRole('ROLE_USER'); // Déjà défini dans Membre.php 
 			
 			// Mdp saisi dans le formulaire :
-			$password = $user -> getPassword(); 
+			// $password = $user -> getPassword(); 
 			
-			// on encode selon l'algo choisi dans security.yaml pour cette entité Membre
-			$password_crypte = $encoder -> encodePassword($user, $password);
-			$user -> setPassword($password_crypte);
+			// // on encode selon l'algo choisi dans security.yaml pour cette entité Membre
+			// $password_crypte = $encoder -> encodePassword($user, $password);
+			// $user -> setPassword($password_crypte);
 			
 			$manager -> flush();
 			
