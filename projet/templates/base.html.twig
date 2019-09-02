@@ -14,47 +14,66 @@
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Handisport</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{  asset('/css/style.css') }}">
+{% block stylesheets %}{% endblock %}
+
 </head>
 <body>
 
 
+<!--Navbar-->
 <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #1445FF;">
-  <a href="#"><img src="img/logoParlons.png" height="100vh" alt=""></a>
-  
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    
+    <a class="navbar-brand success" href="#">Parlons sans bruit</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item ">
+                <a class="nav-link" href="#">Accueil <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Videotheque<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Videotheque<span class="sr-only">(current)</span></a>
+            </li>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">A propos<span class="sr-only">(current)</span></a>
+            </li>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Tapez votre recherche" aria-label="Search">
+            
+        </form>
+        <button type="button" class="btn btn-primary btn-sm">Connexion</button>
+        <button type="button" class="btn btn-primary btn-sm">Inscription</button>
+    </div>
 
-    <div class="navbar-nav taille">
-      <a class="nav-item nav-link active" href="#">Accueil<span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link active" href="#">Dictionnaire</a>
-      <a class="nav-item nav-link active" href="#">Videotheque</a>
-      <a class="nav-item nav-link active" href="#">A Propos</a>
-    </div> 
-</div>
-  
-    <form class="form-inline my-2 my-lg-0">
-        <a class="nav-item nav-link active" href="{{ path('connexion')}}">Connexion</a>
-      <a class="nav-item nav-link active" href="{{ path('inscription')}}">Inscription</a>
-    </form>
 </nav>
-<div>
+<!--/.Navbar-->
+
+<!-- <div>
     <img src="img/logoParlons.png"
     height="150px"
     width="500px"/>
-    </div>
+</div> -->
 
 <header>
 
-    
+    <div class="fond">
+      
+    </div>
 
 </header>
 
 
-<div class=container-fluid>
-  {% block content %}
-  {%  endblock  %}
 
-</div>
 
 
 
@@ -63,7 +82,7 @@
 <!-- Footer -->
 <footer class="page-footer font-small unique-color-dark">
 
-<div style="background-color: #6351ce;">
+<div style="background-color:#1445FF;">
   <div class="container">
 
     <!-- Grid row-->
@@ -119,7 +138,7 @@
 
       <!-- Content -->
       <h6 class="text-uppercase font-weight-bold">Parlons sans bruit</h6>
-      <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+      <hr class="blue accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
       <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
         consectetur
         adipisicing elit.</p>
@@ -132,7 +151,7 @@
 
       <!-- Links -->
       <h6 class="text-uppercase font-weight-bold">Produits</h6>
-      <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+      <hr class="blue accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
       <p>
         <a href="#!">MDBootstrap</a>
       </p>
@@ -154,7 +173,7 @@
 
       <!-- Links -->
       <h6 class="text-uppercase font-weight-bold">Liens utiles</h6>
-      <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+      <hr class="blue accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
       <p>
         <a href="#!">Your Account</a>
       </p>
@@ -176,7 +195,7 @@
 
       <!-- Links -->
       <h6 class="text-uppercase font-weight-bold">Contact</h6>
-      <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+      <hr class="blue accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
       <p>
         <i class="fas fa-home mr-3"></i> WF3 - Les Mureaux 78130</p>
       <p>

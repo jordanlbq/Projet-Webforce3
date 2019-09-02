@@ -1,8 +1,9 @@
 .container-fluid
 {
+
 margin: 0!important;
 padding:0;
-height:80vh;
+height:100vh;
 }
 .taille
 {
@@ -15,7 +16,7 @@ height:80vh;
 
 header
 {
-    height:80vh;
+    height:90vh;
     margin:0 auto;
     width:100%;
 }
@@ -24,6 +25,14 @@ img
    
     padding:2vh;
 }
-.navbar-collapse{
+.navbar-collapse
+{
     justify-content: center;
+}
+.fond
+{
+    background-image:url('../image/image-isma.png');
+    height:100vh;
+    width:100%;
+    background-size:cover;
 }
