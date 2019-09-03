@@ -159,13 +159,41 @@ class AdminController extends AbstractController
         
              $this -> addFlash('success', 'La definition n°' . $definition -> getId() . ' a bien été enregistré en BDD');
         
+<<<<<<< Updated upstream
+=======
+        $definition = new Definition; //objet vide
+	   
+        // On récupère le formulaire
+        $form = $this -> createForm(DefinitionType::class, $definition); 
+        // On récupère les infos saisies dans le formulaire ($_POST)
+        $form -> handleRequest($request);
+        
+        if($form -> isSubmitted() && $form -> isValid()){
+ 
+             $manager = $this -> getDoctrine() -> getManager();
+             $manager -> persist($definition);
+             // Enregistrer le $produit dans le système 
+ 
+             // On enregistre la photo en BDD et sur le serveur. 
+             if($definition -> getFile() != NULL){
+                 $definition -> uploadFile();
+             }
+             
+             $manager -> flush();
+             // va enregistrer $produit en BDD
+        
+             $this -> addFlash('success', 'La definition n°' . $definition -> getId() . ' a bien été enregistré en BDD');
+        
+>>>>>>> Stashed changes
              return $this -> redirectToRoute('admin_definition');
         }
         
         return $this->render('admin/Definition_form.html.twig', [
-           
+            'Definition_form' => $form -> createView() 
         ]);
     }
+
+
 
     /**
      * @Route("/admin/Definition/update/{id}", name="admin_Definition_update")

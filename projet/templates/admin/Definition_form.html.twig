@@ -14,35 +14,38 @@
 {{ form_start(definitonForm) }}	
 <div class="row">
 	<div class="form-group col-md-12">
-		{{ form_row(userForm.description)}}
+		{{ form_row(definitonForm.description)}}
 	</div>
 </div>
 <div class="row">
 	<div class="form-group col-md-4">
-		{{ form_row(userForm.terme)}}
+		{{ form_row(definitonForm.terme)}}
 	</div>
-	<div class="form-group col-md-4">
-		{{ form_row(userForm.nom)}}
-	</div>
-	<div class="form-group col-md-4">
-		{{ form_row(userForm.civilite)}}
-	</div>
+
 </div>
 <div class="row">
 	<div class="form-group col-md-6 offset-md-3">
-		{{ form_row(userForm.image)}}
+		{{ form_row(definitonForm.image)}}
+	</div>
+	<div class="form-group col-md-6 offset-md-3">
+		{{ form_row(definitonForm.videoUpload)}}
+	</div>
+	<div class="form-group col-md-6 offset-md-3">
+		{{ form_row(<div class="form-group col-md-6 offset-md-3">
+			{{ form_row(definitonForm.videoUrl)}}
+		</div>.image)}}
 	</div>
 </div>
 
 <div class="row">
 	<div class=" form-group col-md-2">
-		{{ form_row(userForm.dateUpload.day, {label : 'Jour'}) }}
+		{{ form_row(definitonForm.dateUpload.day, {label : 'Jour'}) }}
 	</div>
 	<div class=" form-group col-md-2">
-		{{ form_row(userForm.dateUpload.month, {label : 'Mois'}) }}
+		{{ form_row(definitonForm.dateUpload.month, {label : 'Mois'}) }}
 	</div>
 	<div class=" form-group col-md-2">
-		{{ form_row(userForm.dateUpload.year, {label : 'Année'}) }}
+		{{ form_row(definitonForm.dateUpload.year, {label : 'Année'}) }}
 	</div>
 </div>
 {{ form_end(userForm) }}
