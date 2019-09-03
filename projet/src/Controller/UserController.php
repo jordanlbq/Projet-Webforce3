@@ -35,11 +35,11 @@ class UserController extends AbstractController
 			$user -> setRole('ROLE_USER'); // Déjà défini dans Membre.php 
 			
 			// Mdp saisi dans le formulaire :
-			// $password = $user -> getPassword(); 
+			$password = $user -> getPassword(); 
 			
-			// // on encode selon l'algo choisi dans security.yaml pour cette entité Membre
-			// $password_crypte = $encoder -> encodePassword($user, $password);
-			// $user -> setPassword($password_crypte);
+			// on encode selon l'algo choisi dans security.yaml pour cette entité Membre
+			$password_crypte = $encoder -> encodePassword($user, $password);
+			$user -> setPassword($password_crypte);
 			
 			$manager -> flush();
 			

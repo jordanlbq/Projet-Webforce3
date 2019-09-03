@@ -51,8 +51,8 @@ class AdminController extends AbstractController
 		if($form -> isSubmitted() && $form -> isValid()){
 			
 			$manager -> persist($user);
-			// $password = md5(rand(1, 99999)); //DF5ESdsrSF5S56 
-			// $membre -> setPassword($password);
+			$password = md5(rand(1, 99999)); //DF5ESdsrSF5S56 
+			$user -> setPassword($password);
 			
 			$manager -> flush();
 			
@@ -79,7 +79,7 @@ class AdminController extends AbstractController
 		$form -> handleRequest($request);
 		if($form -> isSubmitted() && $form -> isValid()){
 			
-			$manager -> persist($user);
+			$manager -> persist($membre);
 			$manager -> flush();
 			
 			$this -> addFlash('success', 'Le membre ' . $id . ' a bien été modifié !');
@@ -87,7 +87,7 @@ class AdminController extends AbstractController
 		}
         return $this->render('admin/user_form.html.twig', [
             'userForm' => $form -> createView(),
-			
+			'action' => 'Modifier un membre'
         ]);
     }
 
@@ -136,7 +136,31 @@ class AdminController extends AbstractController
      */
     public function adminDefinitionAdd()
     {
+        $definition = new Definition; //objet vide
+	   
+        // On récupère le formulaire
+        $form = $this -> createForm(DefinitionType::class, $definition); 
+        // On récupère les infos saisies dans le formulaire ($_POST)
+        $form -> handleRequest($request);
         
+        if($form -> isSubmitted() && $form -> isValid()){
+ 
+             $manager = $this -> getDoctrine() -> getManager();
+             $manager -> persist($definition);
+             // Enregistrer le $produit dans le système 
+ 
+             // On enregistre la photo en BDD et sur le serveur. 
+             if($definition -> getFile() != NULL){
+                 $definition -> uploadFile();
+             }
+             
+             $manager -> flush();
+             // va enregistrer $produit en BDD
+        
+             $this -> addFlash('success', 'La definition n°' . $definition -> getId() . ' a bien été enregistré en BDD');
+        
+             return $this -> redirectToRoute('admin_definition');
+        }
         
         return $this->render('admin/Definition_form.html.twig', [
            
