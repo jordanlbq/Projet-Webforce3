@@ -34,7 +34,7 @@ class Definition
      * @var string
      *
      * @ORM\Column(name="titre", type="string", length=255, nullable=false)
-     */
+     */ 
     private $terme;
 
 
@@ -51,7 +51,8 @@ class Definition
      * @ORM\Column(name="photo", type="string", length=255, nullable=true)
      */
     private $photo = 'default.jpg';
-
+    
+    private $file;
 
     /**
      * @var string|null

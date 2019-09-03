@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Request; 
+
 
 class DefinitionController extends AbstractController
 {
@@ -38,13 +40,21 @@ class DefinitionController extends AbstractController
      * @Route ("/recherche", name="recherche")
      * 
      */
-    public function recherche(){
+    // public function recherche(Request $request){
 
-        return $this->render('definition/index.html.twig',[
-            
-        ]);
+    //     $repo = $this -> getDoctrine() -> getRepository(Definition::class);
+		
+	// 	//1 : Récupérer les produits grâce à $term et la liste des catégories
+		
+	// 	$term = $request -> query -> get('s');
+	// 	// query correspond aux parametre GET.
+	// 	$term = $repo -> findAllBySearch($term);
+	
+    //     return $this->render('definition/index.html.twig',[
+    //         'difinition' => $term,  
+    //     ]);
 
-    }
+    // }
 
 
 }

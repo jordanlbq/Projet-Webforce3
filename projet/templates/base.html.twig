@@ -50,8 +50,8 @@
             <input class="form-control mr-sm-2" type="text" placeholder="Tapez votre recherche" aria-label="Search">
             
         </form>
-        <button type="button" href="{{ path('connexion')}}" class="btn btn-primary btn-sm">Connexion</button>
-        <button type="button"  href="{{ path('inscription')}}" class="btn btn-primary btn-sm">Inscription</button>
+        <button type="button" href="{{ path('connexion') }}" class="btn btn-primary btn-sm"> <a href="{{ path('connexion') }}">Connexion</a></button>
+        <button type="button"   class="btn btn-primary btn-sm"> <a href="{{ path('inscription') }}">Inscription</a></button>
     </div>
 </nav>
 <!--/.Navbar-->
@@ -76,7 +76,7 @@
 			{% block content %}
 
 
-      
+
 			{% endblock %}
 </div>
 

@@ -19,6 +19,25 @@ class DefinitionRepository extends ServiceEntityRepository
         parent::__construct($registry, Definition::class);
     }
 
+
+
+
+
+    // public function findAllBySearch($term){
+		
+	// 	$term = '%' . $term . '%';
+	// 	// ex : blanche ---> %blanche%
+		
+	// 	$builder = $this -> createQueryBuilder('p');
+	// 	return $builder 
+	// 		//-> select('p')
+	// 		-> where('p.term LIKE :term')
+	// 		-> orWhere('p.description LIKE :term')
+	// 		-> setParameter(':term', $term)
+	// 		-> getQuery() -> getResult();
+	// }
+    
+    
     // /**
     //  * @return Definition[] Returns an array of Definition objects
     //  */
