@@ -30,6 +30,7 @@ class DefinitionController extends AbstractController
      */
     public function definition(){
 
+
         return $this->render('definition/definition.html.twig',[
             
         ]);
@@ -40,21 +41,21 @@ class DefinitionController extends AbstractController
      * @Route ("/recherche", name="recherche")
      * 
      */
-    // public function recherche(Request $request){
+    public function recherche(Request $request){
 
-    //     $repo = $this -> getDoctrine() -> getRepository(Definition::class);
+        $repo = $this -> getDoctrine() -> getRepository(Definition::class);
 		
-	// 	//1 : Récupérer les produits grâce à $term et la liste des catégories
+		//1 : Récupérer les produits grâce à $term et la liste des catégories
 		
-	// 	$term = $request -> query -> get('s');
-	// 	// query correspond aux parametre GET.
-	// 	$term = $repo -> findAllBySearch($term);
+		$term = $request -> query -> get('s');
+		// query correspond aux parametre GET.
+		$term = $repo -> findAllBySearch($term);
 	
-    //     return $this->render('definition/index.html.twig',[
-    //         'difinition' => $term,  
-    //     ]);
+        return $this->render('definition/index.html.twig',[
+            'definition' => $term,  
+        ]);
 
-    // }
+    }
 
 
 }

@@ -9,45 +9,34 @@
 {% block content %}
 <h1 class="text-center text-primary"> Ajout d'une définition </h1>
 
-<form class="form-groupe bg-primary text-white">
+
 <div class="col-md-8 offset-md-2">
-{{ form_start(definitonForm) }}	
+{{ form_start(definitionForm) }}	
 <div class="row">
 	<div class="form-group col-md-12">
-		{{ form_row(definitonForm.description)}}
+		{{ form_row(definitionForm.description)}}
 	</div>
 </div>
 <div class="row">
-	<div class="form-group col-md-4">
-		{{ form_row(definitonForm.terme)}}
+	<div class="form-group col-md-6 offset-md-3">
+		{{ form_row(definitionForm.terme)}}
 	</div>
 
 </div>
 <div class="row">
 	<div class="form-group col-md-6 offset-md-3">
-		{{ form_row(definitonForm.file)}}
+		{{ form_row(definitionForm.file)}}
 	</div>
 	<div class="form-group col-md-6 offset-md-3">
-		{{ form_row(definitonForm.videoUpload)}}
+		{{ form_row(definitionForm.fileVideo)}}
 	</div>
 	<div class="form-group col-md-6 offset-md-3">
-	{{ form_row(definitonForm.videoUrl)}}
+	{{ form_row(definitionForm.videoUrl)}}
 	</div>
 </div>
 
-<div class="row">
-	<div class=" form-group col-md-2">
-		{{ form_row(definitonForm.dateUpload.day, {label : 'Jour'}) }}
-	</div>
-	<div class=" form-group col-md-2">
-		{{ form_row(definitonForm.dateUpload.month, {label : 'Mois'}) }}
-	</div>
-	<div class=" form-group col-md-2">
-		{{ form_row(definitonForm.dateUpload.year, {label : 'Année'}) }}
-	</div>
-</div>
-{{ form_end(definitonForm) }}
+
+{{ form_end(definitionForm) }}
 	</div>
 
-</form>
 {% endblock %}

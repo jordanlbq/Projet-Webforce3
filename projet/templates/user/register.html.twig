@@ -1,51 +1,71 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-	<h1>Inscription</h1>
-	
+
 	
 	{{ form_start(userForm) }}
-		<div class="row">
-			<div class="col-6">
-				{{ form_row(userForm.username) }}
-				
-				{% if not is_granted('ROLE_USER') %}
-					{{ form_row(userForm.password) }}
-				{% endif %}
-				
-				{{ form_row(userForm.prenom) }}
-				{{ form_row(userForm.nom) }}
-				{{ form_row(userForm.email) }}
-				{{ form_row(userForm.civilite) }}
-			</div>
-
-			<div class="col-6">
-				{{ form_row(userForm.adresse) }}
-				{{ form_row(userForm.ville) }}
-				{{ form_row(userForm.codePostal) }}
-				{{ form_row(userForm.telephone) }}
-				
-				<div class="row">
-					
-					<div class="col-4">
-					{{ form_row(userForm.dateDeNaissance.day, {label : 'Jour'}) }}
-					</div>
-					<div class="col-4">
-					{{ form_row(userForm.dateDeNaissance.month, {label : 'Mois'}) }}
-					</div>
-					<div class="col-4">
-					{{ form_row(userForm.dateDeNaissance.year, {label : 'Année'}) }}
-					</div>
+<div class="row">
+	<div class="col-md-12 col-xs-12 d-flex justify-content-center">
+		<div class="card">
+			
+			<h5 class="card-header info-color white-text text-center py-4">
+				<strong>Inscription</strong>
+			</h5>
+			<div class="card-body px-lg-5 pt-0">
+					<div class="col-12">
+						<div class="md-form">
+							{{ form_row(userForm.username) }}			
+						</div>
+						<div class="md-form">
+						{% if not is_granted('ROLE_USER') %}
+							{{ form_row(userForm.password) }}
+						{% endif %}
+						</div>				
+						<div class="md-form">
+							{{ form_row(userForm.prenom) }}
+						</div>
+						<div class="md-form">
+							{{ form_widget(userForm.nom) }}
+						</div>				
+						<div class="md-form">
+							{{ form_row(userForm.email) }}
+						</div>				
+						<div class="md-form">
+							{{ form_row(userForm.civilite) }}
+						</div>	
+					</div>	
+					<div class="col-12">
+						<div class="md-form">
+							{{ form_row(userForm.adresse) }}
+						</div>				
+						<div class="md-form">
+							{{ form_row(userForm.ville) }}
+						</div>				
+						<div class="md-form">
+							{{ form_row(userForm.codePostal) }}
+						</div>				
+						<div class="md-form">
+							{{ form_row(userForm.telephone) }}
+						</div>								
+						<div class="row">
+							<div class="col-4">
+							{{ form_row(userForm.dateDeNaissance.day, {label : 'Jour'}) }}
+							</div>
+							<div class="col-4">
+							{{ form_row(userForm.dateDeNaissance.month, {label : 'Mois'}) }}
+							</div>
+							<div class="col-4">
+							{{ form_row(userForm.dateDeNaissance.year, {label : 'Année'}) }}
+							</div>
+						</div>
+					</div>	
+				<div class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">
+					{{ form_row(userForm.submit, { 'label' : 'Inscription' } ) }}
 				</div>
-				
-				{{ form_row(userForm.submit, { 'label' : 'Inscription' } ) }}
 			</div>
-			
-			
-			
 		</div>
+	</div>
+</div>			
 	{{ form_end(userForm) }}
-	
-	
-	
+
 {% endblock %}

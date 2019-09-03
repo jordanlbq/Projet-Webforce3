@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 namespace App\Form;
 
@@ -35,7 +35,7 @@ class UserType extends AbstractType
             ->add('codePostal', IntegerType::class)
             ->add('adresse', TextareaType::class)
             ->add('telephone', TextType::class)
-            ->add('dateDeNaissance',  BirthdayType::class)
+            ->add('dateDeNaissance', BirthdayType::class)
             -> add('submit', SubmitType::class)
            
         ;

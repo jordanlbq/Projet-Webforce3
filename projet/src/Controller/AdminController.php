@@ -62,24 +62,24 @@ class AdminController extends AbstractController
 			return $this -> redirectToRoute('admin_user');
 		}
         return $this->render('admin/user_form.html.twig', [
-            'userForm' => $form -> createView() 
-           
+            'userForm' => $form -> createView() ,
+            'action' => 'inscription d\'un membre par un admin'
         ]);
     }
 
     /**
      * @Route("/admin/user/update/{id}", name="admin_user_update")
      */
-    public function adminUserUpdate($id, ObjectManager $manager, Request $request)
+    public function adminUserUpdate($id, Request $request, ObjectManager $manager)
     {
         $user = $manager -> find(User::class, $id);
 		$form = $this -> createForm(UserType::class, $user, array('admin' => true));
-		
+		$password = getPassword();
 		// traiter les infos du formulaire 
 		$form -> handleRequest($request);
 		if($form -> isSubmitted() && $form -> isValid()){
-			
-			$manager -> persist($membre);
+			$password -> setPassword($password);
+			$manager -> persist($user);
 			$manager -> flush();
 			
 			$this -> addFlash('success', 'Le membre ' . $id . ' a bien été modifié !');
@@ -94,7 +94,7 @@ class AdminController extends AbstractController
     /**
      * @Route("/admin/user/delete/{id}", name="admin_user_delete")
      */
-    public function adminUserDelete($id)
+    public function adminUserDelete($id, ObjectManager $manager)
     {
        
 		$user = $manager -> find(User::class, $id);
@@ -153,7 +153,11 @@ class AdminController extends AbstractController
              if($definition -> getFile() != NULL){
                  $definition -> uploadFile();
              }
+             if($definition -> getVideoUpload() != NULL){
+                $definition -> UploadedVideoUpload();
+            }
              
+             $definition -> setDateUpload( new \Datetime('now'));
              $manager -> flush();
              // va enregistrer $produit en BDD
         
@@ -164,29 +168,30 @@ class AdminController extends AbstractController
         }
         
         return $this->render('admin/Definition_form.html.twig', [
-            'definitonForm' => $form -> createView() 
+            'definitionForm' => $form -> createView() 
         ]);
     }
 
 
 
     /**
-     * @Route("/admin/Definition/update/{id}", name="admin_Definition_update")
+     * @Route("/admin/Definition/update/{id}", name="admin_definition_update")
      */
         public function adminDefinitionUpdate($id, ObjectManager $manager, Request $request)
     {
         $definition = $manager -> find(Definition::class, $id);
-		$form = $this -> createForm(DefinitionType::class, $user, array('admin' => true));
+		$form = $this -> createForm(DefinitionType::class, $definition, array('admin' => true));
 		
 		// traiter les infos du formulaire 
-		$form -> handleRequest($request);
+        $form -> handleRequest($request);
+        
 		if($form -> isSubmitted() && $form -> isValid()){
 			
 			$manager -> persist($definition);
 			$manager -> flush();
 			
 			$this -> addFlash('success', 'La défnition ' . $id . ' a bien été modifié !');
-			return $this -> redirectToRoute('admin_user');
+			return $this -> redirectToRoute('admin_definition');
 		}
         return $this->render('admin/definition_form.html.twig', [
             'definitionForm' => $form -> createView(),
@@ -195,27 +200,20 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/Definition/delete/{id}", name="admin_Definition_delete")
+     * @Route("/admin/Definition/delete/{id}", name="admin_definition_delete")
      */
-        public function adminDefinitionDelete($id, ObjectManager $manager, Request $request)
+        public function adminDefinitionDelete($id)
         {
-            $definition = $manager -> find(Definition::class, $id);
-            $form = $this -> createForm(DefinitionType::class, $user, array('admin' => true));
+            $manager = $this -> getDoctrine() -> getManager();
+            $definition = $manager -> find(Produit::class, $id);
             
-            // traiter les infos du formulaire 
-            $form -> handleRequest($request);
-            if($form -> isSubmitted() && $form -> isValid()){
-                
-                $manager -> persist($definition);
-                $manager -> flush();
-                
-                $this -> addFlash('success', 'La défnition ' . $id . ' a bien été supprimé !');
-                return $this -> redirectToRoute('admin_user');
-            }
-            return $this->render('admin/definition_form.html.twig', [
-                'definitionForm' => $form -> createView(),
-                'action' => 'Supprimer une définition'
-            ]);
+            $produit -> removePhoto();
+            $manager -> remove($difinition);
+            $manager -> flush();
+            
+            $this -> addFlash('success', 'La definition ' . $id . ' a bien été supprimé !');
+            return $this -> redirectToRoute('admin_definition'); 
+    
         }
     // Validation de l'admin de l'ajout de video ou d'image par le user
 

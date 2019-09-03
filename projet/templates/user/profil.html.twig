@@ -3,10 +3,27 @@
 
 {% block content %}
     
-    <h1>profil</h1>
+ 
+	<h1>Profil de {{ app.user.prenom }} {{app.user.nom }}</h1>
 	
+	<h2>Informations générales</h2>
 	
-
-    	
-
+	Bonjour {{ app.user.username }} ! 
+	
+	<ul>
+		<li>Prénom : {{ app.user.prenom }}</li>
+		<li>Nom : {{ app.user.nom }}</li>
+		<li>Email : {{ app.user.email }}</li>
+	</ul>
+	<a class="btn btn-success" href="{{ path('profil_update') }}">Modifier mon profil</a>
+	
+	<hr/>
+	
 {% endblock %}
+
+
+
+
+
+	
+

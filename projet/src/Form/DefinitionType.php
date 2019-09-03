@@ -13,6 +13,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\FileType; 
 use Symfony\Component\Validator\Constraints as Assert;
 
+
 class DefinitionType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
@@ -20,7 +21,6 @@ class DefinitionType extends AbstractType
         $builder 
             ->add('description', TextareaType::class)
             ->add('terme', TextType::class)
-            ->add('dateUpload', BirthdayType::class)
             -> add('file', FileType::class, array(
                 'required' => false, 
 				'constraints' => array(
@@ -43,7 +43,7 @@ class DefinitionType extends AbstractType
             ->add('videoUrl', TextType::class, array(
                 'required' => false, 
             ))
-            ->add('videoUpload', FileType::class, array(
+            ->add('fileVideo', FileType::class, array(
                 'required' => false, 
 				'constraints' => array(
 					new Assert\File(array(
@@ -72,7 +72,9 @@ class DefinitionType extends AbstractType
             'data_class' => Definition::class,
             'attr' => array(
                 'novalidate' => 'novalidate'
-            )
+            ),
+            'admin' => false,
+			'update' => false
         ]);
     }
     

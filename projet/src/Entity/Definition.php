@@ -69,6 +69,7 @@ class Definition
      */
     private $videoUpload; 
 
+    private $fileVideo;
     
 
 
@@ -149,7 +150,7 @@ class Definition
      *
      * @return  self
      */ 
-    public function setDateUpload(date $dateUpload)
+    public function setDateUpload(\Datetime $dateUpload)
     {
         $this->dateUpload = $dateUpload;
 
@@ -236,9 +237,17 @@ class Definition
     public function getFile(){
         return $this -> file;
     }
+    public function setFileVideo(UploadedFile $fileVideo) : self{
+        $this -> fileVideo = $fileVideo;
+        return $this;
+    }
+    
+    public function getFileVideo(){
+        return $this -> fileVideo;
+    }
 
     // Photo
-    public function UploadeFile(){
+    public function UploadFile(){
         $nom = $this -> file -> getClientOriginalName();
         $new_nom = $this -> renamePhoto($nom);
         $this -> photo = $new_nom;
@@ -262,7 +271,7 @@ class Definition
 
     // VideoUpload
     public function UploadedVideoUpload(){
-        $nom = $this -> file -> getClientOriginalName();
+        $nom = $this -> fileVideo -> getClientOriginalName();
         $new_nom = $this -> renameVideoUpload($nom);
         $this -> videoUpload = $new_nom;
         $this ->file -> move($this -> dirVideoUpload(), $new_nom);
@@ -277,9 +286,9 @@ class Definition
     }
 
     public function removeVideoUpload(){
-        $file = $this -> dirVideoUpload() . $this -> getVideoUpload();
-        if(file_exists($file) && $this -> getVideoUpload() != 'default.mp4'){
-            unlink($file);
+        $fileVideo = $this -> dirVideoUpload() . $this -> getVideoUpload();
+        if(file_exists($fileVideo) && $this -> getVideoUpload() != 'default.mp4'){
+            unlink($fileVideo);
         }
     }
 

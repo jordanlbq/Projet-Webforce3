@@ -23,20 +23,37 @@ class DefinitionRepository extends ServiceEntityRepository
 
 
 
+	// /**
+	// * @return Definition[] Returns an array of Produit objects
+	// * Fonction pour récupérer toutes les catégories
+	// */
     // public function findAllBySearch($term){
 		
 	// 	$term = '%' . $term . '%';
 	// 	// ex : blanche ---> %blanche%
 		
-	// 	$builder = $this -> createQueryBuilder('p');
+	// 	$builder = $this -> createQueryBuilder('d');
 	// 	return $builder 
 	// 		//-> select('p')
-	// 		-> where('p.term LIKE :term')
-	// 		-> orWhere('p.description LIKE :term')
+	// 		-> where('d.terme LIKE :term')
+	// 		-> orWhere('d.description LIKE :term')
 	// 		-> setParameter(':term', $term)
 	// 		-> getQuery() -> getResult();
 	// }
     
+    
+	// /**
+	// * @return Definition[] Returns an array of Produit objects
+	// * Fonction pour récupérer toutes les catégories
+	// */
+    // public function findAllDefinition(){
+	// 	$builder = $this -> createQueryBuilder('d');
+	// 	$builder 
+	// 		//-> select('d.categorie')
+	// 		-> distinct(true)
+	// 		-> orderBy('p.terme', 'ASC');
+	// 	return $builder -> getQuery() -> getResult();
+	// }
     
     // /**
     //  * @return Definition[] Returns an array of Definition objects
