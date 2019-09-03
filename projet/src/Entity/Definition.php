@@ -83,19 +83,6 @@ class Definition
         return $this->id;
     }
 
-    /**
-     * Set the value of id
-     *
-     * @param  int  $id
-     *
-     * @return  self
-     */ 
-    public function setId(int $id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
 
     /**
      * Get the value of description
@@ -141,6 +128,30 @@ class Definition
     public function setTerme(string $terme)
     {
         $this->terme = $terme;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of dateUpload
+     *
+     * @return  date
+     */ 
+    public function getDateUpload()
+    {
+        return $this->dateUpload;
+    }
+
+    /**
+     * Set the value of dateUpload
+     *
+     * @param  date  $dateUpload
+     *
+     * @return  self
+     */ 
+    public function setDateUpload(date $dateUpload)
+    {
+        $this->dateUpload = $dateUpload;
 
         return $this;
     }

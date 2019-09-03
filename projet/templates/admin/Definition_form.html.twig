@@ -25,15 +25,13 @@
 </div>
 <div class="row">
 	<div class="form-group col-md-6 offset-md-3">
-		{{ form_row(definitonForm.image)}}
+		{{ form_row(definitonForm.file)}}
 	</div>
 	<div class="form-group col-md-6 offset-md-3">
 		{{ form_row(definitonForm.videoUpload)}}
 	</div>
 	<div class="form-group col-md-6 offset-md-3">
-		{{ form_row(<div class="form-group col-md-6 offset-md-3">
-			{{ form_row(definitonForm.videoUrl)}}
-		</div>.image)}}
+	{{ form_row(definitonForm.videoUrl)}}
 	</div>
 </div>
 
@@ -48,7 +46,7 @@
 		{{ form_row(definitonForm.dateUpload.year, {label : 'Année'}) }}
 	</div>
 </div>
-{{ form_end(userForm) }}
+{{ form_end(definitonForm) }}
 	</div>
 
 </form>

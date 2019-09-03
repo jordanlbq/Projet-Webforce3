@@ -6,6 +6,12 @@ use App\Entity\Definition;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType; 
+use Symfony\Component\Form\Extension\Core\Type\BirthdayType; 
+use Symfony\Component\Form\Extension\Core\Type\TextType; 
+use Symfony\Component\Form\Extension\Core\Type\TextareaType; 
+use Symfony\Component\Form\Extension\Core\Type\FileType; 
+use Symfony\Component\Validator\Constraints as Assert;
 
 class DefinitionType extends AbstractType
 {
@@ -16,6 +22,7 @@ class DefinitionType extends AbstractType
             ->add('terme', TextType::class)
             ->add('dateUpload', BirthdayType::class)
             -> add('file', FileType::class, array(
+                'required' => false, 
 				'constraints' => array(
 					new Assert\Image(array(
 						'mimeTypes' => array(
@@ -33,8 +40,11 @@ class DefinitionType extends AbstractType
 				), 
 				'label' => 'Photo'
 			))
-            ->add('videoUrl', TextType::class)
+            ->add('videoUrl', TextType::class, array(
+                'required' => false, 
+            ))
             ->add('videoUpload', FileType::class, array(
+                'required' => false, 
 				'constraints' => array(
 					new Assert\File(array(
                         'mimeTypes' => array(
@@ -51,16 +61,18 @@ class DefinitionType extends AbstractType
 					)),
 				), 
 				'label' => 'VIDEO'
-			))
+            ))
+            -> add('submit', SubmitType::class)
+            
         ;
     }
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
             'data_class' => Definition::class,
-            'attr' => [
+            'attr' => array(
                 'novalidate' => 'novalidate'
-            ]
+            )
         ]);
     }
     
