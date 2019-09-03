@@ -173,21 +173,50 @@ class AdminController extends AbstractController
     /**
      * @Route("/admin/Definition/update/{id}", name="admin_Definition_update")
      */
-    public function adminDefinitionUpdate($id)
+        public function adminDefinitionUpdate($id, ObjectManager $manager, Request $request)
     {
-        return $this->render('admin/Definition_form.html.twig', [
-           
+        $definition = $manager -> find(Definition::class, $id);
+		$form = $this -> createForm(DefinitionType::class, $user, array('admin' => true));
+		
+		// traiter les infos du formulaire 
+		$form -> handleRequest($request);
+		if($form -> isSubmitted() && $form -> isValid()){
+			
+			$manager -> persist($definition);
+			$manager -> flush();
+			
+			$this -> addFlash('success', 'La défnition ' . $id . ' a bien été modifié !');
+			return $this -> redirectToRoute('admin_user');
+		}
+        return $this->render('admin/definition_form.html.twig', [
+            'definitionForm' => $form -> createView(),
+			'action' => 'Modifier une définition'
         ]);
     }
 
     /**
      * @Route("/admin/Definition/delete/{id}", name="admin_Definition_delete")
      */
-    public function adminDefinitionDelete($id)
-    {
-       
-    }
-
+        public function adminDefinitionDelete($id, ObjectManager $manager, Request $request)
+        {
+            $definition = $manager -> find(Definition::class, $id);
+            $form = $this -> createForm(DefinitionType::class, $user, array('admin' => true));
+            
+            // traiter les infos du formulaire 
+            $form -> handleRequest($request);
+            if($form -> isSubmitted() && $form -> isValid()){
+                
+                $manager -> persist($definition);
+                $manager -> flush();
+                
+                $this -> addFlash('success', 'La défnition ' . $id . ' a bien été supprimé !');
+                return $this -> redirectToRoute('admin_user');
+            }
+            return $this->render('admin/definition_form.html.twig', [
+                'definitionForm' => $form -> createView(),
+                'action' => 'Supprimer une définition'
+            ]);
+        }
     // Validation de l'admin de l'ajout de video ou d'image par le user
 
     /**
