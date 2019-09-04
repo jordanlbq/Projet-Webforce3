@@ -23,6 +23,7 @@
 
 <!--Navbar-->
 <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #1445FF;">
+    
     <a class="navbar-brand success" href="#">Parlons sans bruit</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse"
         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -32,7 +33,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item ">
-                <a class="nav-link" href="{{ path('home') }}">Accueil <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="#">Accueil <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Bibliotheque<span class="sr-only">(current)</span></a>
@@ -50,9 +51,10 @@
             <input class="form-control mr-sm-2" type="text" placeholder="Tapez votre recherche" aria-label="Search">
             
         </form>
-        <button type="button" class="btn btn-primary btn-sm"> <a href="{{ path('connexion') }}">Connexion</a></button>
-        <button type="button" class="btn btn-primary btn-sm"> <a href="{{ path('inscription') }}">Inscription</a></button>
+        <button type="button" class="btn btn-primary btn-sm">Connexion</button>
+        <button type="button" class="btn btn-primary btn-sm">Inscription</button>
     </div>
+
 </nav>
 <!--/.Navbar-->
 
@@ -64,21 +66,22 @@
 
 <header>
 
-    <div class="fond">
-      
+    <div class="fond row">
+      <div class="col-md-8 my-5 offset-2">
+      <div class="input-group md-form form-sm form-1 pl-0">
+        <div class="input-group-prepend">
+          <span class="input-group-text blue lighten-3" id="basic-text1"><i class="fas fa-search text-white"
+              aria-hidden="true"></i></span>
+        </div>
+        <input class="form-control white-text my-0 py-1" type="text" placeholder="Search" aria-label="Search">
+      </div>
+    </div>
     </div>
 
 </header>
 
 
-<div class="container-fluid">
 
-			{% block content %}
-
-
-
-			{% endblock %}
-</div>
 
 
 
@@ -152,25 +155,7 @@
     <!-- Grid column -->
 
     <!-- Grid column -->
-    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-
-      <!-- Links -->
-      <h6 class="text-uppercase font-weight-bold">Produits</h6>
-      <hr class="blue accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-      <p>
-        <a href="#!">MDBootstrap</a>
-      </p>
-      <p>
-        <a href="#!">MDWordPress</a>
-      </p>
-      <p>
-        <a href="#!">BrandFlow</a>
-      </p>
-      <p>
-        <a href="#!">Bootstrap Angular</a>
-      </p>
-
-    </div>
+ 
     <!-- Grid column -->
 
     <!-- Grid column -->
@@ -183,7 +168,7 @@
         <a href="#!">Your Account</a>
       </p>
       <p>
-        <a href="#!">Become an Affiliate</a>
+        <a href="https://www.elix-lsf.fr/">Elix</a>
       </p>
       <p>
         <a href="#!">Shipping Rates</a>
@@ -220,8 +205,7 @@
 <!-- Footer Links -->
 
 <!-- Copyright -->
-<div class="footer-copyright text-center py-3">© 2018 Copyright:
-  <a href="https://mdbootstrap.com/education/bootstrap/"> MDBootstrap.com</a>
+<div class="footer-copyright text-center py-3">© 2019 Parlons Sans Bruit
 </div>
 <!-- Copyright -->
 
