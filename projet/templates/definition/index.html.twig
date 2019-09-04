@@ -5,15 +5,7 @@
 
 
 
-<form class="form-inline mt-2 mt-md-0" action="{{ path('recherche') }}" method="get">
-   <div class="input-group md-form form-sm form-1 pl-0">
-      <div class="input-group-prepend">
-         <span class="input-group-text cyan lighten-2" type="submit" value="OK" ><i class="fas fa-search text-white"
-            aria-hidden="true"></i></span>
-      </div>
-      <input class="form-control my-0 py-1" type="text" placeholder="rechercher" aria-label="rechercher" name="s" value="">
-   </div>		
-</form>
+
 
 <header>
 <h1>Parlon Sans Bruit</h1>
@@ -21,53 +13,51 @@
     <div class="fond row">
       <div class="col-md-8 my-5 offset-2">
       <div class="input-group md-form form-sm form-1 pl-0">
-        <div class="input-group-prepend">
-          <span class="input-group-text blue lighten-3" id="basic-text1"><i class="fas fa-search text-white"
-              aria-hidden="true"></i></span>
-        </div>
-        <input class="form-control white-text my-0 py-1" type="text" placeholder="Search" aria-label="Search">
+        <form class="form-inline mt-2 mt-md-0" action="{{ path('recherche') }}" method="get">
+   <div class="input-group md-form form-sm form-1 pl-0">
+      <div class="input-group-prepend">
+         <span class="input-group-text cyan lighten-2 " type="submit" value="OK" ><i class="fas fa-search text-white"
+            aria-hidden="true"></i></span>
+      </div>
+      <input class="form-control my-0 py-1 text-white" type="text" placeholder="rechercher" aria-label="rechercher" name="s" value="">
+   </div>		
+</form>
       </div>
     </div>
     </div>
 
 </header>
-
-
-<div class="col-lg-9">
-
-   <div class="row">
-
-      <div class="card mb-3" style="max-width: 540px;">
-         <div class="row no-gutters">
-            <div class="col-md-4">
-               <img src="..." class="card-img" alt="...">
-            </div>
-
-            {# <ul>
-            {% for def in definition %}
-               <li>{{ def.terme }}</li>
-               <li>{{ def.description }}</li>
-               <li><img src="{{ def.image }}"></li>
-               <li>{{ def.dateUpload }} kgs</li>
-            
-               
-            {% endfor %}
-            </ul>
-            <button class="btn btn-success"><a href=""></a>Aller sur la boutique</button>    #}
-
-            <div class="col-md-8">
-               <div class="card-body">
-               <h5 class="card-title">Card title</h5>
-               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-               <
-               </div>
-            </div>
+{% if 'action' == 'recherche?s={{ def.terme }}' %}
+{% for def in definition %}
+<div class="card mb-3 offset-md-3 flex-wrap" style="max-width:100vh;">
+   <div class="row no-gutters">
+      <div class="col-md-6 col-sm-6">
+      {% if def.videoUpload is not null %}
+         <video controls width="300">
+               <source src="{{ asset('/video/' ~ def.videoUpload ) }}" height="60px" type="video/mp4">
+         </video>
+	   {% elseif d.videoUrl is not null  %}
+         <iframe src="{{ def.videoUrl}}"></iframe>
+	   {% else  %}
+         <img src="{{ asset('/image/' ~ def.photo) }}" class="card-img" alt="image de {{ def.terme}}">
+	   {% endif %}
+      </div>
+      <div class="col-md-6 col-sm-6 text-danger">
+         <div class="card-body">
+            <h5 class="card-title text-danger text-center">{{ def.terme }}</h5><hr>
+            <p class="card-text text-danger">{{ def.description }}</p><hr>
+            <p class="card-text text-danger"><small class="text-muted"> date d'ajout {{ def.dateUpload | date('d/m/Y') }}</small></p>
+         </div>
+         <div class="col-md-6 col-sm-6 text-danger">
+            <label> Ajouter une video, une image ou une url</label>
+            <input type="file" name="ajout" value='ajout'>
          </div>
       </div>
    </div>
-   <!-- /.row -->
-
-</div>
-<!-- /.col-lg-9 -->
+</div> 
+           
+{% endfor %}
+{% endif %}
+        
 
 {% endblock %}

@@ -13,25 +13,29 @@
 			</h5>
 			<div class="card-body px-lg-5 pt-0">
 					<div class="col-12">
-						<div class="md-form">
-							{{ form_row(userForm.username) }}			
+						<div class="form-group">
+							<label>username</label>		
+
+							{{ form_widget(userForm.username, {'attr' : {
+								'class' : 'form-control'
+							}} ) }}			
 						</div>
 						<div class="md-form">
 						{% if not is_granted('ROLE_USER') %}
-							{{ form_row(userForm.password) }}
+							{{ form_widget(userForm.password) }}
 						{% endif %}
 						</div>				
 						<div class="md-form">
-							{{ form_row(userForm.prenom) }}
+							{{ form_widget(userForm.prenom) }}
 						</div>
 						<div class="md-form">
 							{{ form_widget(userForm.nom) }}
 						</div>				
 						<div class="md-form">
-							{{ form_row(userForm.email) }}
+							{{ form_widget(userForm.email) }}
 						</div>				
 						<div class="md-form">
-							{{ form_row(userForm.civilite) }}
+							{{ form_widget(userForm.civilite) }}
 						</div>	
 					</div>	
 					<div class="col-12">

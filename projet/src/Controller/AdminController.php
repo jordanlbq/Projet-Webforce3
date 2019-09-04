@@ -156,7 +156,7 @@ class AdminController extends AbstractController
              if($definition -> getFile() != NULL){
                  $definition -> uploadFile();
              }
-             if($definition -> getVideoUpload() != NULL){
+             if($definition -> getFileVideo() != NULL){
                 $definition -> UploadedVideoUpload();
             }
              

@@ -71,7 +71,13 @@ class Definition
 
     private $fileVideo;
     
+    /**
+     * @ORM\Column(type="integer")
+	 * 
+     */
+    private $etat;
 
+    
 
 
     /**
@@ -246,6 +252,30 @@ class Definition
         return $this -> fileVideo;
     }
 
+    /**
+     * Get the value of etat
+     *
+     * @return  int
+     */ 
+    public function getEtat()
+    {
+        return $this->etat;
+    }
+
+    /**
+     * Set the value of etat
+     *
+     * @param  int  $etat
+     *
+     * @return  self
+     */ 
+    public function setEtat(int $etat)
+    {
+        $this->etat = $etat;
+
+        return $this;
+    }
+
     // Photo
     public function UploadFile(){
         $nom = $this -> file -> getClientOriginalName();
@@ -274,10 +304,10 @@ class Definition
         $nom = $this -> fileVideo -> getClientOriginalName();
         $new_nom = $this -> renameVideoUpload($nom);
         $this -> videoUpload = $new_nom;
-        $this ->file -> move($this -> dirVideoUpload(), $new_nom);
+        $this ->fileVideo -> move($this -> dirVideoUpload(), $new_nom);
     }
 
-    public function renameVideoUpload(){
+    public function renameVideoUpload($name){
         return 'video_' . time() . '_' . rand(1, 99999) . '_' . $name;
     }
 

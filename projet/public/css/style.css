@@ -3,7 +3,7 @@
 
 margin: 0!important;
 padding:0;
-height:100vh;
+height:auto;
 }
 .taille
 {
@@ -32,7 +32,7 @@ img
 .fond
 {
     background-image:url('../image/image-isma.png');
-    height:100vh;
+    height:70vh;
     width:100%;
     background-size:cover;
 }

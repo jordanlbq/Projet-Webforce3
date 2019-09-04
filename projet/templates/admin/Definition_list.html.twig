@@ -18,9 +18,7 @@
 					<th>description</th>
 					<th>termes</th>
 					<th>dateUpload</th>
-					<th>photo</th>
-					<th>videoUrl</th>
-					<th>videoUpload</th>
+					<th>Media</th>
 					<th colspan="2">Action</th>
 				</tr>
 			</thead>
@@ -33,24 +31,21 @@
 	<td>{{ d.description }}</td>
 	<td>{{ d.terme }}</td>
     <td>{{ d.dateUpload | date("m/d/Y") }}</td>
-	{# {% if d.photo  %}
-    <td><img src="{{ asset('/photo/' ~ d.photo ) }}" height="60px" /></td>
-	{% else if %}
-    <td>
+	{% if d.videoUpload is not null %} 
+   <td>
 		<video controls width="250">
-
-			<source src="{{ asset('/photo/' ~ d.videoUrl ) }}" height="60px"
-				type="video/mp4">
+			<source src="{{ asset('/video/' ~ d.videoUpload ) }}" height="60px" type="video/mp4">
 		</video>
 	</td>
-	{% else if %}
-    <td>{{ d.fileVideo }}</td>
-	{% else %}
-	<td> aucune image ou de video, je vous invites à en rajouter une si vous avez la possiblité de le faire </td>
-	{% endif %} #}
-{# 	
+	{% elseif d.videoUrl is not null  %}
 	<td>
-		<a href="{{ path('admin_user_fiche', {id : d.id}) }}"> 
+		<iframe src="{{ d.videoUrl}}"></iframe>
+	</td>
+	{% else %}
+    <td><img height="100" src="{{ asset('/image/' ~ d.photo ) }}" height="60px" /></td>
+	{% endif %}
+	{# <td>
+		<a href="{{ path('admin_definition_fiche', {id : d.id}) }}"> 
 			<i class="fas fa-eye"></i>
 		</a>
 	</td>  #}
@@ -67,18 +62,7 @@
 </tr>	
 
 {% endfor %}
-				
-				
-				
-				
-				
 			</tbody>
-			
 		</table>
 	</div>
-	
-	
-	
-	
-
 {% endblock  %}
