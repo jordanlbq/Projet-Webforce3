@@ -63,12 +63,6 @@
             <input class="form-control mr-sm-2" type="text" placeholder="Tapez votre recherche" aria-label="Search">
             
         </form>
-<<<<<<< Updated upstream
-        <button type="button" class="btn btn-primary btn-sm">Connexion</button>
-        <button type="button" class="btn btn-primary btn-sm">Inscription</button>
-    </div>
-
-=======
         {% if not is_granted('IS_AUTHENTICATED_FULLY') %}
         <button type="button" class="btn btn-primary btn-sm"> <a href="{{ path('connexion') }}">Connexion</a></button>
         <button type="button" class="btn btn-primary btn-sm"> <a href="{{ path('inscription') }}">Inscription</a></button>
@@ -86,7 +80,7 @@
 				{% endif %}
  
  </div>
->>>>>>> Stashed changes
+
 </nav>
 <!--/.Navbar-->
 
