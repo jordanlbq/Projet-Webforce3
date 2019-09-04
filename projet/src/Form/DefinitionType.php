@@ -34,8 +34,8 @@ class DefinitionType extends AbstractType
 						'mimeTypesMessage' => 'Veuillez sélectionner une image PNG, JPG, JPEG ou GIF' ,
 					)),
 					new Assert\File(array(
-						'maxSize' => '2M',
-						'maxSizeMessage' => '>Veuillez sélectionner une image de 2Mo maximum'
+						'maxSize' => '5M',
+						'maxSizeMessage' => '>Veuillez sélectionner une image de 5Mo maximum'
 					)),
 				), 
 				'label' => 'Photo'

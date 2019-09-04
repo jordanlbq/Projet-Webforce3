@@ -6,7 +6,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request; 
 
+use App\Entity\Definition;
 
+use App\Form\DefinitionRepository;
 class DefinitionController extends AbstractController
 {
 
@@ -49,10 +51,10 @@ class DefinitionController extends AbstractController
 		
 		$term = $request -> query -> get('s');
 		// query correspond aux parametre GET.
-		$term = $repo -> findAllBySearch($term);
+		$def = $repo -> findAllBySearch($term);  
 	
         return $this->render('definition/index.html.twig',[
-            'definition' => $term,  
+            'definition' => $def,  
         ]);
 
     }

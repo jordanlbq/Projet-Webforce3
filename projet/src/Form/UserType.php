@@ -15,6 +15,9 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType; 
 use Symfony\Component\Form\Extension\Core\Type\EmailType; 
 
+use Symfony\Component\Validator\Constraints as Assert;
+
+
 class UserType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
@@ -50,7 +53,17 @@ class UserType extends AbstractType
 		}
 		else{
 			if($options['update'] != true){
-				$builder -> add('password', PasswordType::class);
+				$builder -> add('password', PasswordType::class, array(
+                    'constraints' => array(
+                        new Assert\NotBlank(array(
+                            'message' => 'Veuillez renseigner un mot de passe'
+                        )),
+                        new Assert\Regex(array(
+                            'pattern' => "/^\S*(?=\S{8,})(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[\d])\S*$/",
+                            'message' => 'Veuillez saisir un mot de passe composé d\'une majuscule, d\'une minuscule, d\'un chiffre(8 caractères minimum)'
+                        ))
+                    ),
+                ));
 			}
 		}
     

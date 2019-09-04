@@ -4,16 +4,70 @@
 {% block content %}
 
 
-<h1>Bonjour toto </h1>
+
+<form class="form-inline mt-2 mt-md-0" action="{{ path('recherche') }}" method="get">
+   <div class="input-group md-form form-sm form-1 pl-0">
+      <div class="input-group-prepend">
+         <span class="input-group-text cyan lighten-2" type="submit" value="OK" ><i class="fas fa-search text-white"
+            aria-hidden="true"></i></span>
+      </div>
+      <input class="form-control my-0 py-1" type="text" placeholder="rechercher" aria-label="rechercher" name="s" value="">
+   </div>		
+</form>
+
+<header>
+<h1>Parlon Sans Bruit</h1>
+
+    <div class="fond row">
+      <div class="col-md-8 my-5 offset-2">
+      <div class="input-group md-form form-sm form-1 pl-0">
+        <div class="input-group-prepend">
+          <span class="input-group-text blue lighten-3" id="basic-text1"><i class="fas fa-search text-white"
+              aria-hidden="true"></i></span>
+        </div>
+        <input class="form-control white-text my-0 py-1" type="text" placeholder="Search" aria-label="Search">
+      </div>
+    </div>
+    </div>
+
+</header>
 
 
-<div class="wrap">
-   <div class="search">
-      <input type="text" class="searchTerm" placeholder="what do you want bro?">
-      <button type="submit" class="searchButton">
-        <i class="fa fa-search"></i>
-     </button>
+<div class="col-lg-9">
+
+   <div class="row">
+
+      <div class="card mb-3" style="max-width: 540px;">
+         <div class="row no-gutters">
+            <div class="col-md-4">
+               <img src="..." class="card-img" alt="...">
+            </div>
+
+            {# <ul>
+            {% for def in definition %}
+               <li>{{ def.terme }}</li>
+               <li>{{ def.description }}</li>
+               <li><img src="{{ def.image }}"></li>
+               <li>{{ def.dateUpload }} kgs</li>
+            
+               
+            {% endfor %}
+            </ul>
+            <button class="btn btn-success"><a href=""></a>Aller sur la boutique</button>    #}
+
+            <div class="col-md-8">
+               <div class="card-body">
+               <h5 class="card-title">Card title</h5>
+               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+               <
+               </div>
+            </div>
+         </div>
+      </div>
    </div>
+   <!-- /.row -->
+
 </div>
+<!-- /.col-lg-9 -->
 
 {% endblock %}
