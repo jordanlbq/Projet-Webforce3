@@ -73,13 +73,16 @@ class AdminController extends AbstractController
     public function adminUserUpdate($id, Request $request, ObjectManager $manager)
     {
         $user = $manager -> find(User::class, $id);
-		$form = $this -> createForm(UserType::class, $user, array('admin' => true));
-		$password = getPassword();
+        $form = $this -> createForm(UserType::class, $user, array('admin' => true));
+        
+        $password = $user -> getPassword(); 
 		// traiter les infos du formulaire 
 		$form -> handleRequest($request);
 		if($form -> isSubmitted() && $form -> isValid()){
-			$password -> setPassword($password);
-			$manager -> persist($user);
+            $user -> setPassword($password); 
+			
+            $manager -> persist($user);
+            
 			$manager -> flush();
 			
 			$this -> addFlash('success', 'Le membre ' . $id . ' a bien été modifié !');

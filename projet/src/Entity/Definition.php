@@ -33,7 +33,7 @@ class Definition
     /**
      * @var string
      *
-     * @ORM\Column(name="titre", type="string", length=255, nullable=false)
+     * @ORM\Column(name="terme", type="string", length=255, nullable=false)
      */ 
     private $terme;
 

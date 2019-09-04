@@ -38,11 +38,8 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=255, nullable=false)
      * 
-     * @Assert\Regex(
-     * pattern="/^\S*(?=\S{8,})(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[\d])\S*$/",
-     * message="Veuillez saisir un mot de passe composé d'une majuscule, d'une minuscule, d'un chiffre(8 caractères minimum)"
      * )
-     * @Assert\NotBlank(message="Veuillez renseigner un mot de passe")
+     * 
      */
     private $password;
 
