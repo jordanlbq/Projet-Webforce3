@@ -33,7 +33,7 @@
 	<td>{{ d.description }}</td>
 	<td>{{ d.terme }}</td>
     <td>{{ d.dateUpload | date("m/d/Y") }}</td>
-	{% if d.photo  %}
+	{# {% if d.photo  %}
     <td><img src="{{ asset('/photo/' ~ d.photo ) }}" height="60px" /></td>
 	{% else if %}
     <td>
@@ -47,7 +47,7 @@
     <td>{{ d.fileVideo }}</td>
 	{% else %}
 	<td> aucune image ou de video, je vous invites à en rajouter une si vous avez la possiblité de le faire </td>
-	{% endif %}
+	{% endif %} #}
 {# 	
 	<td>
 		<a href="{{ path('admin_user_fiche', {id : d.id}) }}"> 

@@ -31,7 +31,7 @@ img
 }
 .fond
 {
-    background-image:url('img/image-isma.png');
+    background-image:url('../image/image-isma.png');
     height:100vh;
     width:100%;
     background-size:cover;
@@ -48,10 +48,9 @@ img
     margin-top: 0;
 }
 
-<<<<<<< Updated upstream
+
 input-group md-form form-sm form-1 pl-0
 {
     padding-top:25px!important;
 }
-=======
->>>>>>> Stashed changes
+
