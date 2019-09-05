@@ -8,7 +8,6 @@
 
 
 <header>
-<h1>Parlon Sans Bruit</h1>
 
     <div class="fond row">
       <div class="col-md-8 my-5 offset-2">
@@ -27,16 +26,16 @@
     </div>
 
 </header>
-{% if 'action' == 'recherche?s={{ def.terme }}' %}
+ {% if 'action' == 'recherche?s=' %} 
 {% for def in definition %}
-<div class="card mb-3 offset-md-3 flex-wrap" style="max-width:100vh;">
+<a href="{{ path('definition',  {id : def.id}) }} "><div class="card mb-3 offset-md-3 flex-wrap" style="max-width:100vh;">
    <div class="row no-gutters">
       <div class="col-md-6 col-sm-6">
       {% if def.videoUpload is not null %}
          <video controls width="300">
                <source src="{{ asset('/video/' ~ def.videoUpload ) }}" height="60px" type="video/mp4">
          </video>
-	   {% elseif d.videoUrl is not null  %}
+	   {% elseif def.videoUrl is not null  %}
          <iframe src="{{ def.videoUrl}}"></iframe>
 	   {% else  %}
          <img src="{{ asset('/image/' ~ def.photo) }}" class="card-img" alt="image de {{ def.terme}}">
@@ -48,16 +47,16 @@
             <p class="card-text text-danger">{{ def.description }}</p><hr>
             <p class="card-text text-danger"><small class="text-muted"> date d'ajout {{ def.dateUpload | date('d/m/Y') }}</small></p>
          </div>
-         <div class="col-md-6 col-sm-6 text-danger">
+         {# <div class="col-md-6 col-sm-6 text-danger">
             <label> Ajouter une video, une image ou une url</label>
             <input type="file" name="ajout" value='ajout'>
-         </div>
+         </div> #}
       </div>
    </div>
 </div> 
-           
+ </a>          
 {% endfor %}
-{% endif %}
+ {% endif %} 
         
 
 {% endblock %}
