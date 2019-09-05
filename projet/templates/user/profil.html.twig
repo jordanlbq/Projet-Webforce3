@@ -2,28 +2,74 @@
 
 
 {% block content %}
-    
- 
-	<h1>Profil de {{ app.user.prenom }} {{app.user.nom }}</h1>
-	
-	<h2>Informations générales</h2>
-	
-	Bonjour {{ app.user.username }} ! 
-	
-	<ul>
-		<li>Prénom : {{ app.user.prenom }}</li>
-		<li>Nom : {{ app.user.nom }}</li>
-		<li>Email : {{ app.user.email }}</li>
-	</ul>
-	<a class="btn btn-success" href="{{ path('profil_update') }}">Modifier mon profil</a>
-	
-	<hr/>
-	
+
+
+<h1 class="col-md-6 offset-3">Profil de {{ app.user.prenom }} {{app.user.nom }}</h1>
+
+<h2 class="col-md-6 offset-3">Informations générales</h2>
+
+<h4 class="col-md-6 offset-3">Bonjour {{ app.user.username }} ! </h4>
+
+
+
+
+<hr />
+
+<div class="row">
+	<table class=" col-md-6 offset-3 table">
+
+		<tr>
+			<th scope="col">Civilite</th>
+			<td>Monsieur</td>
+		</tr>
+
+		<tbody>
+			<tr>
+				<th scope="row">Nom :</th>
+				<td> {{ app.user.nom }}</td>
+			</tr>
+
+			<tr>
+				<th scope="row">Prenom :</th>
+				<td> {{ app.user.prenom }}</td>
+			</tr>
+
+			<tr>
+				<th scope="row">Email : </th>
+				<td>{{ app.user.email }}</td>
+			</tr>
+
+			<tr>
+				<th scope="row">Adresse :</th>
+				<td> {{ app.user.adresse }}</td>
+			</tr>
+
+			<tr>
+				<th scope="row">Code Postal :</th>
+				<td> {{ app.user.codePostal }}</td>
+			</tr>
+
+			<tr>
+				<th scope="row">Ville :</th>
+				<td> {{ app.user.ville }}</td>
+			</tr>
+
+			<tr>
+				<th scope="row">Telephone : </th>
+				<td>{{ app.user.telephone }}</td>
+			</tr>
+
+			<tr>
+				<th scope="row">Date de naissance :</th>
+				<td> {{ app.user.dateDeNaissance | date('d/m/Y') }}</td>
+			</tr>
+
+		</tbody>
+	</table>
+</div>
+
+<div class="offset-3">
+<a class="btn btn-success" href="{{ path('profil_update') }}">Modifier mon profil</a>
+</div>
+
 {% endblock %}
-
-
-
-
-
-	
-
