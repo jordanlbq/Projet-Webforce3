@@ -7,75 +7,60 @@
 <div class="row">
 	<div class="col-md-12 col-xs-12 d-flex justify-content-center">
 		<div class="card-body text-center ">
-			
+
 			<h5 class="card-header info-color white-text text-center py-4">
 				<strong>Inscription</strong>
 			</h5>
 			<div class="card-body px-lg-5 pt-0">
-					 
 					<div class="col-12">
-<<<<<<< Updated upstream
-						<div class="form-group">
-							<label>username</label>		
-
-							{{ form_widget(userForm.username, {'attr' : {
-								'class' : 'form-control'
-							}} ) }}			
-=======
 						<div class="md-form">
-
-							{{ form_row(userForm.username,  { 'attr' : {
-								'class' : 'form-group'
-							}}) }}			
->>>>>>> Stashed changes
+							{{ form_widget(userForm.username, {'attr' : {'placeholder' : 'Username'}} ) }}	
 						</div>
 						<div class="md-form">
 						{% if not is_granted('ROLE_USER') %}
-							{{ form_widget(userForm.password) }}
+							{{ form_widget(userForm.password, {'attr' : {'placeholder' : 'Password'}} ) }}
 						{% endif %}
 						</div>				
 						<div class="md-form">
-							{{ form_widget(userForm.prenom) }}
+							{{ form_widget(userForm.prenom, {'attr' : {'placeholder' : 'Prenom'}}) }}
 						</div>
 						<div class="md-form">
-							{{ form_widget(userForm.nom) }}
+							{{ form_widget(userForm.nom, {'attr' : {'placeholder' : 'Nom'}}) }}
 						</div>				
 						<div class="md-form">
-							{{ form_widget(userForm.email) }}
+							{{ form_widget(userForm.email, {'attr' : {'placeholder' : 'Email'}}) }}
 						</div>				
 						<div class="md-form">
-							{{ form_widget(userForm.civilite) }}
+							{{ form_widget(userForm.civilite, {'attr' : {'placeholder' : 'Civilite'}}) }}
 						</div>	
 					</div>	
 					<div class="col-12">
 						<div class="md-form">
-							{{ form_row(userForm.adresse) }}
+							{{ form_widget(userForm.adresse, {'attr' : {'placeholder' : 'Adresse'}}) }}
 						</div>				
 						<div class="md-form">
-							{{ form_row(userForm.ville) }}
+							{{ form_widget(userForm.ville, {'attr' : {'placeholder' : 'Ville'}}) }}
 						</div>				
 						<div class="md-form">
-							{{ form_row(userForm.codePostal) }}
+							{{ form_widget(userForm.codePostal, {'attr' : {'placeholder' : 'CodePostal'}}) }}
 						</div>				
 						<div class="md-form">
-							{{ form_row(userForm.telephone) }}
+							{{ form_widget(userForm.telephone, {'attr' : {'placeholder' : 'Telephone'}}) }}
 						</div>								
 						<div class="row">
 							<div class="col-4">
-							{{ form_row(userForm.dateDeNaissance.day, {label : 'Jour'}) }}
+							{{ form_widget(userForm.dateDeNaissance.day, {label : 'Jour'}) }}
 							</div>
 							<div class="col-4">
-							{{ form_row(userForm.dateDeNaissance.month, {label : 'Mois'}) }}
+							{{ form_widget(userForm.dateDeNaissance.month, {label : 'Mois'}) }}
 							</div>
 							<div class="col-4">
-							{{ form_row(userForm.dateDeNaissance.year, {label : 'Année'}) }}
+							{{ form_widget(userForm.dateDeNaissance.year, {label : 'Année'}) }}
 							</div>
 						</div>
 					</div>	
-				<div class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">
-					{{ form_row(userForm.submit, { 'label' : 'Inscription' } ) }}
-				</div>
-
+					{{ form_row(userForm._token) }}
+					{{ form_widget(userForm.submit, { 'label' : 'Inscription', 'attr' : {'class' : 'mt-5 btn-primary'} } ) }}	
 				</form>
 			</div>
 		</div>

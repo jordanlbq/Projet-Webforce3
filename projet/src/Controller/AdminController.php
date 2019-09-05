@@ -129,13 +129,13 @@ class AdminController extends AbstractController
         $repo = $this -> getDoctrine() -> getRepository(Definition::class);
         $def = $repo -> findAll();
 
-        return $this->render('admin/Definition_list.html.twig', [
+        return $this->render('admin/definition_list.html.twig', [
            'def'=> $def
         ]);
     }
 
     /**
-     * @Route("/admin/Definition/add", name="admin_definition_add")
+     * @Route("/admin/definition/add", name="admin_definition_add")
      */
     public function adminDefinitionAdd(Request $request, ObjectManager $manager)
     {
@@ -170,7 +170,7 @@ class AdminController extends AbstractController
              return $this -> redirectToRoute('admin_definition');
         }
         
-        return $this->render('admin/Definition_form.html.twig', [
+        return $this->render('admin/definition_form.html.twig', [
             'definitionForm' => $form -> createView() 
         ]);
     }
@@ -203,15 +203,15 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/Definition/delete/{id}", name="admin_definition_delete")
+     * @Route("/admin/definition/delete/{id}", name="admin_definition_delete")
      */
         public function adminDefinitionDelete($id)
         {
             $manager = $this -> getDoctrine() -> getManager();
-            $definition = $manager -> find(Produit::class, $id);
+            $definition = $manager -> find(Definition::class, $id);
             
-            $produit -> removePhoto();
-            $manager -> remove($difinition);
+            $definition -> removePhoto();
+            $manager -> remove($definition);
             $manager -> flush();
             
             $this -> addFlash('success', 'La definition ' . $id . ' a bien été supprimé !');

@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+
+{% block content %}
+
+<h1> Videotheque </h1>
+
+ <div class='row ml-5 mr-5 mt-5 mb-5 pb-5 bg-primary'>
+{% for def in definition %}
+
+<div class="card mx-auto justify-content-around mt-5 pr-3" style="width: 30rem;">
+    <h5 class="card-title text-danger text-center">{{ def.terme }}</h5><hr>
+    <div class="card-body">
+    {% if def.videoUpload is not null %}
+            <video controls width="450">
+                <source src="{{ asset('/video/' ~ def.videoUpload ) }}" height="250px" type="video/mp4">
+            </video>
+        {% elseif def.videoUrl is not null  %}
+            <iframe src="{{ def.videoUrl}}"></iframe>
+        {% else  %}
+            <img src="{{ asset('/image/' ~ def.photo) }}" class="card-img" alt="image de {{ def.terme}}">
+        {% endif %}
+    </div>
+</div>
+
+
+
+{% endfor %}
+</div>
+<nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+    <li class="page-item disabled">
+      <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#">Next</a>
+    </li>
+  </ul>
+</nav>
+{% endblock %}

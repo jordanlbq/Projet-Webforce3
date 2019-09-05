@@ -27,14 +27,21 @@ class DefinitionController extends AbstractController
     }
 
     /**
-     * @Route ("/definition", name="definition")
+     * @Route ("/definition/{id}", name="definition")
      * 
      */
-    public function definition(){
+    public function definition($id){
 
+        $repo = $this -> getDoctrine() -> getRepository(Definition::class);
+
+        $definition = $repo -> find($id);
+		
+		// Méthode 2 :
+		$manager = $this -> getDoctrine() -> getManager(); 
+		$definition = $manager -> find(Definition::class, $id);
 
         return $this->render('definition/definition.html.twig',[
-            
+            'definition' => $definition,
         ]);
 
     }
@@ -59,5 +66,21 @@ class DefinitionController extends AbstractController
 
     }
 
+     /**
+     * @Route ("/videotheque", name="videotheque")
+     * 
+     */
+    public function videotheque(Request $request){
+
+        $repo = $this -> getDoctrine() -> getRepository(Definition::class);	
+		$definition = $repo -> findAll();	
+		
+		// SELECT DISTINCT p.categorie FROM produit p  ORDER BY p.categorie ASC
+		
+        return $this->render('definition/list_definition.html.twig',[
+            'definition' => $definition,  
+        ]);
+
+    }
 
 }

@@ -31,8 +31,7 @@ class UserType extends AbstractType
 				'choices' => array(
 					'Homme' => 'm',
 					'Femme' => 'f',
-				),
-				'invalid_message' => 'Choix invalide'
+				)
 			))
             ->add('ville', TextType::class)
             ->add('codePostal', IntegerType::class)
@@ -79,4 +78,5 @@ class UserType extends AbstractType
 			'update' => false
         ]);
     }
+
  }

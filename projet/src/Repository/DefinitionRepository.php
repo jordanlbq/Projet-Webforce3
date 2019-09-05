@@ -38,6 +38,19 @@ class DefinitionRepository extends ServiceEntityRepository
 			-> where('d.terme LIKE :term')
 			-> setParameter(':term', $term)
 			-> getQuery() -> getResult();
+    }
+    /**
+	* @return Definition[] Returns an array of Produit objects
+	* Fonction pour récupérer toutes les catégories
+	*/
+    public function findAllVideo(){
+		
+		
+		$builder = $this -> createQueryBuilder('d');
+		return $builder 
+        -> select('p')
+        -> distinct(true)
+        -> orderBy('p', 'ASC');
 	}
     
     
