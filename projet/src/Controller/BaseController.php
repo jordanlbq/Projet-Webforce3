@@ -7,14 +7,15 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class BaseController extends AbstractController
 {
+   
     /**
-     * @Route(/base/mention_legales, name="MentionLégales")
+     * @Route ("/mention", name="mentionLegales")
      * 
      */
-
-     public function mentionLegales(){
+    public function mentionLegales(){
         return $this->render('base/mention_legales.html.twig',[
             
-            ]);
-     }
+        ]);
+
+    }
 }
