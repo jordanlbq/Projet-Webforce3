@@ -30,7 +30,7 @@ color:white;
 }
 header
 {
-    height:90vh;
+    height:auto;
     margin:0 auto;
     width:100%;
 }
@@ -67,3 +67,46 @@ input-group md-form form-sm form-1 pl-0
     padding-top:25px!important;
 }
 
+hr.style2 {
+	border-top: 3px double #8c8b8b;
+}
+a.cool:hover{
+    color: white;
+    transition: 1s;
+transform: scale(1.1);
+
+
+}
+td a{
+    font-size: 1.5em;  
+}
+td a:hover{
+    color: #6faeed;
+}
+p .taille1{
+    font-size: 1.3em;
+}
+#map{ /* la carte DOIT avoir une hauteur sinon elle n'apparaît pas */
+    height:500px;
+}
+@media (min-width: 200px) { 
+    
+
+    video{
+        width: 250px;
+        margin-left: 50px;
+    }
+
+ }
+ @media (min-width: 350px) { 
+    
+
+    video{
+        width: 250px;
+        margin-left: 100px;
+    }
+
+ }
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) { ... }

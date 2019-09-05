@@ -3,22 +3,23 @@
 
 {% block content %}
 
-<h1> Bibliotheque </h1>
+<h1 class='text-center text-primary pt-5'> Bibliotheque </h1>
 
- <div class='row ml-5 mr-5 mt-5 mb-5 pb-5 '>
- <ul class="list-group list-group-flush">
-{% for def in definition %}
-
- 
-
-  <li class="list-group-item">{{def.terme}}</li>
-
-
-
-
-{% endfor %}
-</ul>
-
+<div class='row ml-5 mr-5 mt-5 mb-5 pb-5 '>
+  <table class="table table-primary text-center">
+    <tr>
+        <thead class="thead" >
+            <tr>
+                <th scope="col">les mots disponible dans le dictionnaire dans l'ordre alphabétique</th>
+            </tr>
+        </thead>
+    </tr>
+    <tr >
+        {% for def in definition %}
+            <td class="list-group-item"> <a href='{{ path('definition',  {id : def.id}) }}'>{{def.terme}}</a></td>
+        {% endfor %}
+    </tr>
+  </table>
 </div>
 
 {% endblock %}

@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-   
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin="" />
+
         <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <!-- Bootstrap core CSS -->
@@ -23,7 +24,7 @@
 <!--Navbar-->
 <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #1445FF;">
     
-    <a class="navbar-brand success" href="#"><img src="image/logo-isma2.png" height="60vh" alt="logo"></a>
+    <a class="navbar-brand success" href="#"><img src="{{  asset('/image/logo-isma2.png') }}" height="60vh" alt="logo"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse"
         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
         aria-label="Toggle navigation">
@@ -48,7 +49,7 @@
             {% if is_granted('ROLE_ADMIN') %}
             <!-- Menu admin -->
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <i class="fa fa-cogs"></i> Gestion du site</a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
                 <a class="dropdown-item" href="{{ path('admin_definition') }}">Gestion des définitions</a>
@@ -64,7 +65,7 @@
         <button type="button" class="btn btn-primary btn-sm"> <a href="{{ path('inscription') }}">Inscription</a></button>
         {% else %}
         <li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<a class="nav-link dropdown-toggle cool" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						<i class="fa fa-user"></i> {{ app.user.prenom }} {{ app.user.nom }}
 					</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown1">

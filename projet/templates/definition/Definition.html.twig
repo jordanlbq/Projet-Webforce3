@@ -3,9 +3,9 @@
 
 {% block content %}
 
-<h1 class="text-center text-primary mt-3 mb-5">{{ definition.terme }}</h1>
+<h1 class="text-center text-primary mt-3 mb-5">{{ definition.terme }}</h1><hr>
 <div class='row'>
-<div class='col-md-6'>
+<div class='col-md-6 offset-md-3'>
   <p class=" text-md-center mx-auto ">{{ definition.description }}
   fwdhbvggjfkjgifdhjgfkjdhgkjhfdgkjlhfkljdhgfkjhghcgjchjhjhjjghjhgj
   gfjghjghj
@@ -27,18 +27,18 @@
   hgjghcjcghkhcgkjhgck
   jkghkjghkhjkdjukh
   gkjxcdghgcdkfjioghxfgkjhkgljh
-  <strong class='text-primary'>
+  <strong class='text-primary'><hr>
   {{ definition.dateUpload | date('d/m/Y')}}
   </strong>
   </p>
 
   {# <div><iframe>  </iframe></div> #}
   {% if definition.videoUpload is not null %} 
-    <p class="">
+    <div class="col-md-6 offset-md-3 mt-3 pb-4">
       <video controls width="500">
         <source src="{{ asset('/video/' ~ definition.videoUpload ) }}" height="150px" type="video/mp4">
       </video>
-    </p>
+    </div>
     {% elseif definition.videoUrl is not null  %}
     <p>
       <iframe src="{{ definition.videoUrl}}"></iframe>

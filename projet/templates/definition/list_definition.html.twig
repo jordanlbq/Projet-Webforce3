@@ -1,19 +1,47 @@
 {% extends 'base.html.twig' %}
+{% block stylesheets %}
+<style>
+.card{
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    -webkit-box-shadow: 10px 10px 5px -5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 5px -5px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 5px -5px rgba(0,0,0,0.75);
+    transition: 1s
+}
+.card:hover{
+    transform: scale(1.1);
+}
+</style>
+    {% endblock %}
 
 
 {% block content %}
 
-<h1> Videotheque </h1>
-
- <div class='row ml-5 mr-5 mt-5 mb-5 pb-5 bg-primary'>
+<h1 class='text-center text-primary pt-5'> Videotheque </h1>
+<header>
+      <div class="col-md-8 my-5 pb-3 offset-2">
+         <div class="input-group md-form form-sm form-1 pl-0">
+            <form class="col-md-12" action="{{ path('recherche') }}" method="get">
+               <div class="input-group md-form form-sm form-1 pl-0">
+                  <div class="input-group-prepend">
+                     <input class="input-group-text cyan lighten-3 " type="submit" value="OK" ></input>
+                  </div>
+                  <input class="form-control my-0 py-1 text-primary" type="text" placeholder="rechercher" aria-label="rechercher" name="s" value="">
+               </div>		
+            </form>
+         </div>
+      </div>
+</header>
+ <div class='row ml-5 mr-5 mt-5 mb-5 pb-5 '>
 {% for def in definition %}
 
 <div class="card mx-auto justify-content-around mt-5 pr-3" style="width: 30rem;">
-    <h5 class="card-title text-danger text-center">{{ def.terme }}</h5><hr>
-    <div class="card-body">
+    <h5 class="card-title text-primary text-center mt-4">{{ def.terme }}</h5><hr>
+    <div class="card-body ">
     {% if def.videoUpload is not null %}
             <video controls width="450">
-                <source src="{{ asset('/video/' ~ def.videoUpload ) }}" height="250px" type="video/mp4">
+                <source src="{{ asset('/video/' ~ def.videoUpload ) }}" height="100px" type="video/mp4">
             </video>
         {% elseif def.videoUrl is not null  %}
             {{ def.videoUrl}}
@@ -22,6 +50,7 @@
         {% endif %}
     </div>
 </div>
+
 
 
 

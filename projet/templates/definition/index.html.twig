@@ -5,49 +5,29 @@
 
 
 <header>
-
-      
-
-
-    <div class="fond row">
+   <div class="fond row">
       <div class="col-md-8 my-5 offset-2">
-      <div class="input-group md-form form-sm form-1 pl-0">
-        <form class="col-md-12" action="{{ path('recherche') }}" method="get">
-   <div class="input-group md-form form-sm form-1 pl-0">
-      <div class="input-group-prepend">
-         <input class="input-group-text cyan lighten-3 " type="submit" value="OK" ><i class="fas fa-search text-white"
-            aria-hidden="true"></i></input>
-      </div>
-      <input class="form-control my-0 py-1 text-white" type="text" placeholder="rechercher" aria-label="rechercher" name="s" value="">
-   </div>		
-</form>
-      </div>
-    </div>
-    </div>
-
-    <!-- <div class="fond row">
-         <div class="col-md-8 my-5 offset-2">
-           <div class="input-group md-form form-sm form-1 pl-0">
-               <form class="" action="{{ path('recherche') }}" method="get">
-             <div class="input-group-prepend">
-               <span class="input-group-text blue lighten-3" type="submit" value="OK"><i class="fas fa-search text-white"
-                   aria-hidden="true"></i></span>
-             </div>
-             <input class="form-control white-text my-0 py-1" type="text" placeholder="Search" aria-label="Search" name="s" value="">
-           </form>
-            </div>
+         <div class="input-group md-form form-sm form-1 pl-0">
+            <form class="col-md-12" action="{{ path('recherche') }}" method="get">
+               <div class="input-group md-form form-sm form-1 pl-0">
+                  <div class="input-group-prepend">
+                     <input class="input-group-text cyan lighten-3 " type="submit" value="OK" ></input>
+                  </div>
+                  <input class="form-control my-0 py-1 text-white" type="text" placeholder="rechercher" aria-label="rechercher" name="s" value="">
+               </div>		
+            </form>
          </div>
-       </div> -->
-
+      </div>
+   </div>
 </header>
 {% if action == 'recherche' %} 
 {% for def in definition %}
 <a href="{{ path('definition',  {id : def.id}) }} "><div class="card mb-3 offset-md-3 flex-wrap" style="max-width:100vh;">
    <div class="row no-gutters">
-      <div class="col-md-6 col-sm-6">
+      <div class="col-md-6 col-sm-6 pt-3">
       {% if def.videoUpload is not null %}
          <video controls width="300">
-               <source src="{{ asset('/video/' ~ def.videoUpload ) }}" height="60px" type="video/mp4">
+               <source src="{{ asset('/video/' ~ def.videoUpload ) }}" height="100px" type="video/mp4">
          </video>
 	   {% elseif def.videoUrl is not null  %}
          <iframe src="{{ def.videoUrl}}"></iframe>
@@ -57,9 +37,9 @@
       </div>
       <div class="col-md-6 col-sm-6 text-danger">
          <div class="card-body">
-            <h5 class="card-title text-danger text-center">{{ def.terme }}</h5><hr>
-            <p class="card-text text-danger">{{ def.description }}</p><hr>
-            <p class="card-text text-danger"><small class="text-muted"> date d'ajout {{ def.dateUpload | date('d/m/Y') }}</small></p>
+            <h5 class="card-title text-primary text-center taille1">{{ def.terme }}</h5><hr>
+            <p class="card-text taille1 ">{{ def.description }}</p><hr>
+            <p class="card-text "><small class="text-muted"> date d'ajout {{ def.dateUpload | date('d/m/Y') }}</small></p>
          </div>
          {# <div class="col-md-6 col-sm-6 text-danger">
             <label> Ajouter une video, une image ou une url</label>
@@ -71,6 +51,51 @@
  </a>          
 {% endfor %}
 {% endif %}  
-        
-
+        <div id="map">
+	    <!-- Ici s'affichera la carte -->
+	</div>
+ <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js" integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw==" crossorigin=""></script>
+	<script type="text/javascript">
+            // On initialise la latitude et la longitude de Paris (centre de la carte)
+            var lat = 48.852969;
+            var lon = 2.349903; 
+            var macarte = null;
+            // Nous initialisons une liste de marqueurs
+var villes = {
+	"INSTITUT NATIONAL DES JEUNES SOURDS 254 Rue Saint-Jacques, 75005 Paris":{ "lat": 48.843243, "lon": 2.3413378 },
+    "SEES DU CELEM 97 Rue de Montreuil, 75011 Paris, France":{ "lat": 48.8506242, "lon": 2.3935475 },
+    "CENTRE AUGUSTIN GROSSELIN 5 Rue Olivier Noyer, Paris 14e Arrondissement":{ "lat": 48.8305, "lon": 2.3228900000000294 },
+    "CENTRE EXPERIMENTAL ORTHOPHONIQUE ET PEDAGOGIQUE 24 Rue des Favorites, Paris 15e Arrondissement":{ "lat": 48.8377, "lon": 2.3045600000000377 },
+    "CMPSI LA NORVILLE CHATEAU LA NORVILLE 4 Rue Victor Hugo, Arpajon, Île-de-France":{ "lat": 48.5888, "lon": 2.2504059 },
+    "SECTION D'EDUCATION ET D ENSEIGNEMENT SPECIALISE 2 Allée de Nancy, Massy, Île-de-France":{ "lat": 48.7355015, "lon": 2.2933628 },
+    "INSTITUT SPECIALISE DEFICIENTS AUDITIFS J.CHARLES GATINOT Place du Maréchal Joffre, Montgeron, Île-de-France ":{ "lat": 48.7067, "lon": 2.455289999999991 },
+    "INSTITUT DEPARTEMENTAL GUSTAVE BAGUER 35 Rue de Nanterre, Asnières-sur-Seine, Île-de-France":{ "lat": 48.91, "lon": 2.2828100000000404 },
+    "INSTITUT DE JEUNES SOURDS 92340 Bourg-la-Reine, France":{ "lat": 48.7795178, "lon": 2.316085 },
+    "EMPRO LES RESONANCES Rue Pasteur, 92210 Saint-Cloud, France":{ "lat": 48.8418898, "lon": 2.2030747 },
+    "CENTRE DE REEDUCATION D'ENFANTS SOURDS Avenue Émile Cossonneau, 93160 Noisy-le-Grand":{ "lat": 48.8493836, "lon": 2.569367 },
+    "ECOLE INTEGREE D CASANOVA 22 Rue de Picardie, Argenteuil, Île-de-France":{ "lat": 48.9634, "lon": 2.2749900000000025 },
+};
+            // Fonction d'initialisation de la carte
+            function initMap() {
+                // Créer l'objet "macarte" et l'insèrer dans l'élément HTML qui a l'ID "map"
+                macarte = L.map('map').setView([lat, lon], 11);
+                // Leaflet ne récupère pas les cartes (tiles) sur un serveur par défaut. Nous devons lui préciser où nous souhaitons les récupérer. Ici, openstreetmap.fr
+                L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
+                    // Il est toujours bien de laisser le lien vers la source des données
+                    attribution: 'données © OpenStreetMap/ODbL - rendu OSM France',
+                    minZoom: 1,
+                    maxZoom: 20
+                }).addTo(macarte);
+                // Nous ajoutons un marqueur
+               // Nous parcourons la liste des villes
+for (ville in villes) {
+	var marker = L.marker([villes[ville].lat, villes[ville].lon]).addTo(macarte);
+	// Nous ajoutons la popup. A noter que son contenu (ici la variable ville) peut être du HTML
+	marker.bindPopup(ville);
+            }}
+            window.onload = function(){
+		// Fonction d'initialisation qui s'exécute lorsque le DOM est chargé
+		initMap(); 
+            };
+        </script>
 {% endblock %}
