@@ -33,9 +33,7 @@ class DefinitionController extends AbstractController
      */
     public function definition($id){
 
-        $repo = $this -> getDoctrine() -> getRepository(Definition::class);
-
-        $definition = $repo -> find($id);
+      ;
 		
 		// Méthode 2 :
 		$manager = $this -> getDoctrine() -> getManager(); 
