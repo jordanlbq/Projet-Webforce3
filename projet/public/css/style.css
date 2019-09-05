@@ -9,6 +9,10 @@ margin: 0!important;
 padding:0;
 height:auto;
 }
+img
+{
+padding:0vh!important;
+}
 .taille
 {
     justify-content: space-between
@@ -17,7 +21,10 @@ height:auto;
 {
     color:white;
 }
-
+a
+{
+color:white;
+}
 header
 {
     height:90vh;
