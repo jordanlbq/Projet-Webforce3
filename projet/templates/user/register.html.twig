@@ -6,19 +6,28 @@
 	{{ form_start(userForm) }}
 <div class="row">
 	<div class="col-md-12 col-xs-12 d-flex justify-content-center">
-		<div class="card">
+		<div class="card-body text-center ">
 			
 			<h5 class="card-header info-color white-text text-center py-4">
 				<strong>Inscription</strong>
 			</h5>
 			<div class="card-body px-lg-5 pt-0">
+					 
 					<div class="col-12">
+<<<<<<< Updated upstream
 						<div class="form-group">
 							<label>username</label>		
 
 							{{ form_widget(userForm.username, {'attr' : {
 								'class' : 'form-control'
 							}} ) }}			
+=======
+						<div class="md-form">
+
+							{{ form_row(userForm.username,  { 'attr' : {
+								'class' : 'form-group'
+							}}) }}			
+>>>>>>> Stashed changes
 						</div>
 						<div class="md-form">
 						{% if not is_granted('ROLE_USER') %}
@@ -66,6 +75,8 @@
 				<div class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">
 					{{ form_row(userForm.submit, { 'label' : 'Inscription' } ) }}
 				</div>
+
+				</form>
 			</div>
 		</div>
 	</div>
