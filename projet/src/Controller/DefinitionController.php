@@ -20,8 +20,9 @@ class DefinitionController extends AbstractController
      * 
      */
     public function index(){
+
         return $this->render('definition/index.html.twig',[
-            
+            'action' => '',
         ]);
 
     }
@@ -61,7 +62,8 @@ class DefinitionController extends AbstractController
 		$def = $repo -> findAllBySearch($term);  
 	
         return $this->render('definition/index.html.twig',[
-            'definition' => $def,  
+            'definition' => $def, 
+            'action' => 'recherche',
         ]);
 
     }
@@ -78,6 +80,22 @@ class DefinitionController extends AbstractController
 		// SELECT DISTINCT p.categorie FROM produit p  ORDER BY p.categorie ASC
 		
         return $this->render('definition/list_definition.html.twig',[
+            'definition' => $definition,  
+        ]);
+
+    }
+    /**
+     * @Route ("/bibliotheque", name="bibliotheque")
+     * 
+     */
+    public function bibliotheque(Request $request){
+
+        $repo = $this -> getDoctrine() -> getRepository(Definition::class);	
+		$definition = $repo -> findAll();	
+		
+		// SELECT DISTINCT p.categorie FROM produit p  ORDER BY p.categorie ASC
+		
+        return $this->render('definition/list_mots.html.twig',[
             'definition' => $definition,  
         ]);
 

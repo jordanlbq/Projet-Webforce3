@@ -16,7 +16,7 @@
                 <source src="{{ asset('/video/' ~ def.videoUpload ) }}" height="250px" type="video/mp4">
             </video>
         {% elseif def.videoUrl is not null  %}
-            <iframe src="{{ def.videoUrl}}"></iframe>
+            {{ def.videoUrl}}
         {% else  %}
             <img src="{{ asset('/image/' ~ def.photo) }}" class="card-img" alt="image de {{ def.terme}}">
         {% endif %}

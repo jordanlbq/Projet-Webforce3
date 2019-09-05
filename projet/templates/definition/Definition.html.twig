@@ -3,13 +3,35 @@
 
 {% block content %}
 
-{# <h1 class="text-center text-primary">{{ app.user.terme }}</h1>
-<p>{{ app.user.definition }}</p>
+<h1 class="text-center text-primary">{{ app.definition.terme }}</h1>
+<p>{{ app.definition.description }}</p>
 
-<div><iframe>  </iframe></div>
+{# <div><iframe>  </iframe></div> #}
+{% if app.definition.videoUpload is not null %} 
+   <td>
+		<video controls width="250">
+			<source src="{{ asset('/video/' ~ app.definition.videoUpload ) }}" height="60px" type="video/mp4">
+		</video>
+	</td>
+	{% elseif app.definition.videoUrl is not null  %}
+	<td>
+		<iframe src="{{ app.definition.videoUrl}}"></iframe>
+	</td>
+	{% else %}
+    <td><img height="100" src="{{ asset('/image/' ~ app.definition.photo ) }}" height="60px" /></td>
+	{% endif %}
+	{% if  app.definition.etat == 0  %}
+	 <td class="rouge">
+			En attente
+	</td> 
+	{% elseif app.definition.etat == 1 %}
+ 	<td class="vert">
+		Validé	
+	</td>
+	{% endif %}
 
-<p>{{ app.user.dateUpload }}</p> #}
-<div class="row">
+<p>{{ app.user.dateUpload }}</p> 
+{# <div class="row">
     
     <div class="col-md-6 offset-3"><h1>Définition :<small> Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt expedita natus, beatae numquam magni soluta corporis eveniet saepe perferendis reprehenderit repellat odit! Consequuntur, sequi veniam dolorum nemo eveniet quos numquam?</small></h1></div>
     
@@ -56,7 +78,7 @@
     </SCRIPT> 
       </div>
     </div>
-  </div>
+  </div> #}
 
 
 {% endblock %}
