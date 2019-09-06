@@ -4,7 +4,6 @@ body{
 }
 .container-fluid
 {
-
 margin: 0!important;
 padding:0;
 height:auto;
@@ -23,10 +22,15 @@ padding:0vh!important;
 }
 li{
     list-style: none;
+    
 }
 a
 {
-color:white;
+color:rgb(255, 255, 255);
+}
+a:hover
+{
+color:rgba(255, 255, 255, 0.486);
 }
 header
 {
@@ -46,7 +50,7 @@ img
 .fond
 {
     background-image:url('../image/image-isma.png');
-    height:70vh;
+    height:85vh;
     background-size:cover;
 }
 .input-group.md-form.form-sm.form-1 input{
@@ -54,6 +58,7 @@ img
     border-top-right-radius: 0.25rem;
     border-bottom-right-radius: 0.25rem;
     padding-top:25px;
+
     
 }
 .md-form
@@ -86,8 +91,15 @@ td a:hover{
 p .taille1{
     font-size: 1.3em;
 }
+a.cool2{
+    color: #4285F4;
+
+}
 #map{ /* la carte DOIT avoir une hauteur sinon elle n'apparaît pas */
     height:500px;
+    width: 75%;
+    padding-top: 10vh; 
+    margin: auto;
 }
 @media (min-width: 200px) { 
     

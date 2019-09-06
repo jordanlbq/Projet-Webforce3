@@ -51,7 +51,8 @@ class DefinitionType extends AbstractType
 					new Assert\File(array(
                         'mimeTypes' => array(
 							'video/mp4',
-							"video/mpeg"
+                            "video/mpeg",
+                            "video/webm"
 						),
 						'maxSize' => '100M',
                         'maxSizeMessage' => '>Veuillez sélectionner une image de 100Mo maximum',

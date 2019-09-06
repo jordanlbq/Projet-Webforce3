@@ -4,39 +4,21 @@
 {% block content %}
 
 <h1 class="text-center text-primary mt-3 mb-5">{{ definition.terme }}</h1><hr>
-<div class='row'>
+<div class='row' >
 <div class='col-md-6 offset-md-3'>
-  <p class=" text-md-center mx-auto ">{{ definition.description }}
-  fwdhbvggjfkjgifdhjgfkjdhgkjhfdgkjlhfkljdhgfkjhghcgjchjhjhjjghjhgj
-  gfjghjghj
-  hgjghcjcghkhcgkjhgck
-  jkghkjghkhjkdjukh
-  gkjxcdghgcdkfjioghxfgkjhkgljh gfjghjghj
-  hgjghcjcghkhcgkjhgck
-  jkghkjghkhjkdjukh
-  gkjxcdghgcdkfjioghxfgkjhkgljh gfjghjghj
-  hgjghcjcghkhcgkjhgck
-  jkghkjghkhjkdjukh
-  gkjxcdghgcdkfjioghxfgkjhkgljh gfjghjghj
-  hgjghcjcghkhcgkjhgck
-  jkghkjghkhjkdjukh
-  gkjxcdghgcdkfjioghxfgkjhkgljh gfjghjghj
-  hgjghcjcghkhcgkjhgck
-  jkghkjghkhjkdjukh
-  gkjxcdghgcdkfjioghxfgkjhkgljh gfjghjghj
-  hgjghcjcghkhcgkjhgck
-  jkghkjghkhjkdjukh
-  gkjxcdghgcdkfjioghxfgkjhkgljh
+  <p class=" text-center mx-auto w-50">{{ definition.description }}
   <strong class='text-primary'><hr>
-  {{ definition.dateUpload | date('d/m/Y')}}
+   date d'ajout :   {{ definition.dateUpload | date('d/m/Y')}}
   </strong>
   </p>
 
   {# <div><iframe>  </iframe></div> #}
   {% if definition.videoUpload is not null %} 
+  
+
     <div class="col-md-6 offset-md-3 mt-3 pb-4">
-      <video controls width="500">
-        <source src="{{ asset('/video/' ~ definition.videoUpload ) }}" height="150px" type="video/mp4">
+      <video controls width="6000" style=" height: 300px; width: 300px;">
+        <source src="{{ asset('/video/' ~ definition.videoUpload ) }}" height="500px" type="video/mp4">
       </video>
     </div>
     {% elseif definition.videoUrl is not null  %}
@@ -44,12 +26,16 @@
       <iframe src="{{ definition.videoUrl}}"></iframe>
     </p>
     {% else %}
-      <td><img height="100" src="{{ asset('/image/' ~ definition.photo ) }}" height="60px" /></td>
+      <td><img height="200" src="{{ asset('/image/' ~ definition.photo ) }}" height="60px" /></td>
+      <input type="file" name="video_user">
+      <p class="pt-3">Vueillez ajouter une video pour nous aidées à completer le dictionnaire</p>
     {% endif %}
-
-
-  
-  </div>
+    <div class="text-center mx-auto">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+          <label class="form-check-label mr-5" for="inlineCheckbox1">J'ai compris</label>
+          <input class="form-check-input ml-3" type="checkbox" id="inlineCheckbox2" value="option2">
+         <label class="form-check-label ml-5" for="inlineCheckbox2">Je n'ai pas compris</label>
+    </div>
 </div>
 {# <div class="row">
     
