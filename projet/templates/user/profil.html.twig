@@ -20,7 +20,11 @@
 
 		<tr>
 			<th scope="col">Civilite</th>
+			{% if app.user.civilite == 'm' %}
 			<td>Monsieur</td>
+			{% else %}
+			<td>Madame</td>
+			{% endif %}
 		</tr>
 
 		<tbody>
